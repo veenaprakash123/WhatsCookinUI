@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Link , Routes, Route} from 'react-router-dom'
+import { useState, useEffect } from "react";
+import Welcome from './components/Welcome'
+import Login from './components/Login'
+import Register from './components/Register'
+import Kitchen from './components/Kitchen'
+import RecipeBook from './components/RecipeBook'
 
-function App() {
+
+
+const App = () => {
+
+  const[recipes, setRecipes]= useState([]);
+  const[recipe, setRecipe] = useState('');
+  const[ingredients, setIngredients] = useState([]);
+  const[ingredient, setIngredient] = useState('');
+
+
+  let getIngredients = async() => {
+    let data = await fetch('http://localhost:4000/kitchen')
+    let json = data.json()
+    console.log(json)
+    setIngredients(json)
+  }
+
+  useEffect(() => {
+    getIngredients();
+  }, []);
+
+  let getIngredient = (ingredient) => {
+    setIngredient(ingredient)
+  }
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>App
+        <main>
+            <Routes>
+                {/* <Route path='/welcome' element={<Welcome/>} ></Route> */}
+                <Route path='/session/login' element={<Login/>} ></Route>
+                <Route path='/session/register' element={<Register/>} ></Route>
+                {/* <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>} ></Route>
+                <Route path='/recipes' element={<RecipeBook/>} ></Route> */}
+
+            </Routes>
+        </main>
+
+    
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
