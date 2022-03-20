@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import Register from './components/Register'
-import Kitchen from './components/Kitchen'
+import Kitchen from './components/Ingredients/Kitchen'
 import RecipeBook from './components/RecipeBook'
-import NewIngredient from './components/NewIngredient';
+import NewIngredient from './components/Ingredients/NewIngredient';
+import EditIngredient from './components/Ingredients/EditIngredient';
 
 
 
@@ -58,7 +59,8 @@ const App = () => {
                 <Route path='/session/register' element={<Register/>} ></Route>
                 <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>} ></Route>
                 <Route path='/recipe' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes}/>} ></Route> 
-                <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients}/>}></Route>
+                <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>}></Route>
+                <Route path='/editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
 
             </Routes>
         </main>
