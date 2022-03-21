@@ -40,7 +40,7 @@ const EditIngredient = () => {
         }  
     })
     console.log(response)
-    navigate(`/kitchen/showingredient/${id}`)
+    navigate(`/showingredient/${id}`)
 
       }
     
@@ -53,7 +53,7 @@ const EditIngredient = () => {
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
            <Form.Label>Ingredient</Form.Label>
-           <Form.Control type="name" id="name" name="name" value={ingredient.name} />
+           <Form.Control type="name" id="name" name="name" value={ingredient.name} onChange={handleChange} />
          </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
