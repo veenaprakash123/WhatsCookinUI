@@ -5,9 +5,10 @@ import Welcome from './components/Welcome'
 import Login from './components/Login'
 import Register from './components/Register'
 import Kitchen from './components/Ingredients/Kitchen'
-import RecipeBook from './components/RecipeBook'
+import RecipeBook from './components/RecipeFolder/RecipeBook'
 import NewIngredient from './components/Ingredients/NewIngredient';
 import EditIngredient from './components/Ingredients/EditIngredient';
+import ShowIngredient from './components/Ingredients/ShowIngredient';
 
 
 
@@ -60,7 +61,9 @@ const App = () => {
                 <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>} ></Route>
                 <Route path='/recipe' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes}/>} ></Route> 
                 <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>}></Route>
-                <Route path='/editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
+                <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
+                <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
+
 
             </Routes>
         </main>

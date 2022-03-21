@@ -13,8 +13,9 @@ const NewIngredient = ({addIngredient, ingredient, ingredients, setIngredient, s
 
     let handleSubmit = async(e) => {
         e.preventDefault()
+        console.log({ingredient})
 
-        let response = await fetch('http://localhost:7200/kitchen', {
+        let response = await fetch('http://localhost:4000/kitchen', {
             method: "POST",
             body: JSON.stringify(
                 // name: ingredient.name,
@@ -41,22 +42,22 @@ const NewIngredient = ({addIngredient, ingredient, ingredients, setIngredient, s
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
            <Form.Label>Ingredient</Form.Label>
-           <Form.Control type="name" id="name" name="name" placeholder="Enter name of new ingredient" />
+           <Form.Control type="name" id="name" name="name" placeholder="Enter name of new ingredient" onClick={handleChange} />
          </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
            <Form.Label>Amount</Form.Label>
-           <Form.Control type="amount" id="amount" name="amount" placeholder="Ex: 2 boxes" />
+           <Form.Control type="text" id="amount" name="amount" placeholder="Ex: 2 boxes" onClick={handleChange}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
            <Form.Label>Where do you store it?</Form.Label>
-           <Form.Control type="location" id="location" name="location" placeholder="Ex: fridge" />
+           <Form.Control type="text" id="location" name="location" placeholder="Ex: fridge" onClick={handleChange} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
            <Form.Label>Image</Form.Label>
-           <Form.Control type="text" id="image" name="image" placeholder="Enter url of an online image" />
+           <Form.Control type="text" id="image" name="image" placeholder="Enter url of an online image" onClick={handleChange} />
         </Form.Group>
 
          <Button variant="primary" type="submit">
