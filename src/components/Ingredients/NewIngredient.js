@@ -1,14 +1,17 @@
 import React from 'react'
 import {Form, Button} from 'react-bootstrap'
 import { useNavigate } from 'react-router'
+import { useState } from 'react'
 
-const NewIngredient = ({addIngredient, ingredient, ingredients, setIngredient, setIngredients}) => {
+const NewIngredient = ({addIngredient}) => {
 
+  const [ingredient, setIngredient]= useState({})
 
     let navigate = useNavigate()
 
     let handleChange = (e) => {
-        setIngredient({...ingredient,[e.target.id]:e.target.value})
+      console.log(ingredient)
+      setIngredient({...ingredient,[e.target.id]:e.target.value})
     }
 
     let handleSubmit = async(e) => {
@@ -28,7 +31,7 @@ const NewIngredient = ({addIngredient, ingredient, ingredients, setIngredient, s
                 'Content-Type':'application/json'
             }
         })
-        let newIngredient = response.json()
+        let newIngredient = await response.json()
         console.log(newIngredient)
         addIngredient(newIngredient)
         navigate('/kitchen')
@@ -40,24 +43,24 @@ const NewIngredient = ({addIngredient, ingredient, ingredients, setIngredient, s
     <div>
         <h1>New Ingredient</h1>
         <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" >
            <Form.Label>Ingredient</Form.Label>
-           <Form.Control type="name" id="name" name="name" placeholder="Enter name of new ingredient" onClick={handleChange} />
+           <Form.Control type="name" id="name "name="name" placeholder="Enter name of new ingredient" onChange={handleChange} />
          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" >
            <Form.Label>Amount</Form.Label>
-           <Form.Control type="text" id="amount" name="amount" placeholder="Ex: 2 boxes" onClick={handleChange}/>
+           <Form.Control type="amount" id="amount" name="amount" placeholder="Ex: 2 boxes" onChange={handleChange}/>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
            <Form.Label>Where do you store it?</Form.Label>
-           <Form.Control type="text" id="location" name="location" placeholder="Ex: fridge" onClick={handleChange} />
+           <Form.Control type="location" id="location" name="location" placeholder="Ex: fridge" onChange={handleChange} />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
            <Form.Label>Image</Form.Label>
-           <Form.Control type="text" id="image" name="image" placeholder="Enter url of an online image" onClick={handleChange} />
+           <Form.Control type="text" id="image" name="image" placeholder="Enter url of an online image" onChange={handleChange} />
         </Form.Group>
 
          <Button variant="primary" type="submit">

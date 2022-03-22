@@ -40,6 +40,7 @@ const EditIngredient = () => {
         }  
     })
     console.log(response)
+    console.log(ingredient)
     navigate(`/showingredient/${id}`)
 
       }
