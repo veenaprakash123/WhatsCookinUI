@@ -54,6 +54,9 @@ const App = () => {
     setIngredients([...ingredients, newIngredient])
   }
 
+  let addRecipe = (newRecipe) => {
+    setRecipes([...recipes, newRecipe])
+  }
 
 
   return (
@@ -70,7 +73,7 @@ const App = () => {
                 <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
 
                 <Route path='/recipebook' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes}/>} ></Route> 
-                <Route path='/newrecipe' element={<NewRecipe recipe={recipe} setRecipe={setRecipe}/>}></Route>
+                <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe}/>}></Route>
                 <Route path='/editrecipe' element={<EditRecipe/>}></Route>
                 <Route path='/showrecipe/:id' element={<ShowRecipe recipe={recipe} setRecipe={setRecipe}/>}></Route>
           

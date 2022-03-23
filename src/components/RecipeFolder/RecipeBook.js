@@ -1,15 +1,34 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
 
-  const displayRecipes = recipes? recipes.map((recipe) => {
+  let navigate = useNavigate()
+
+  let deleteRecipe = async(i) => {
+    console.log(i)
+    let data = await fetch('http://localhost:4000/kitchen/details/' + i, {
+      method: "DELETE",
+      body: null,
+      headers: {
+        'Content-Type':'application/json'
+      }
+    })
+    let remainingRecipes = await data.json()
+    setRecipes(remainingRecipes)
+    navigate('/recipebook')
+  }
+
+
+
+  const displayRecipes = recipes? recipes.map((r) => {
     return(
-        <div>
-        <Link to={`/showrecipe/${recipe._id}`}><h1>{recipe.meal}</h1></Link>
-        {/* <h2>{recipe.ingredients}</h2> */}
-        {/* <img>{ingredient.image}</img> */}
+        <div key={r._id}>
+        <Link to={`/showrecipe/${r._id}`}><h1>{r.meal}</h1></Link>
+        <Link to={`/showingredient/${r._id}`} key={r._id} >View</Link>
+        <Button onClick= {() => deleteRecipe(r._id)}>Delete</Button> 
         </div>
     )
   }): null 
