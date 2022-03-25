@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button, Card} from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 
@@ -33,7 +33,7 @@ const NewIngredient = ({addIngredient}) => {
         })
         let newIngredient = await response.json()
         console.log(newIngredient)
-        addIngredient(newIngredient)
+        await addIngredient(newIngredient)
         navigate('/kitchen')
     }
 
@@ -42,9 +42,11 @@ const NewIngredient = ({addIngredient}) => {
   return (
     <div>
         <h1>New Ingredient</h1>
+        <Card>
         <Form onSubmit={handleSubmit}>
+
         <Form.Group className="mb-3" >
-           <Form.Label>Ingredient</Form.Label>
+           <Form.Label>Name</Form.Label>
            <Form.Control type="name" id="name "name="name" placeholder="Enter name of new ingredient" onChange={handleChange} />
          </Form.Group>
 
@@ -67,6 +69,7 @@ const NewIngredient = ({addIngredient}) => {
            Add New Ingredient 
          </Button>
       </Form>
+      </Card>
 
     </div>
   )

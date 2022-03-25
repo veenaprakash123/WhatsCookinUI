@@ -31,8 +31,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     return(
         <div key={ingredient._id}>
           <Card>
-            <h1>{ingredient.name}</h1>
-            {/* <img>{ingredient.image}</img> */}
+            <h1 key={ingredient._id}>{ingredient.name}</h1>
             <div>
               <Link to={`/editingredient/${ingredient._id}`} key={ingredient.id} onClick={ingredientInFocus} >Edit</Link>
               <Link to={`/showingredient/${ingredient._id}`} key={ingredient._id} >View</Link>

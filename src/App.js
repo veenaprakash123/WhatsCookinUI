@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link , Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from "react";
+import { Nav, Container, Navbar } from 'react-bootstrap';
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -13,6 +14,8 @@ import ShowIngredient from './components/Ingredients/ShowIngredient';
 import NewRecipe from './components/RecipeFolder/NewRecipe';
 import EditRecipe from './components/RecipeFolder/EditRecipe';
 import ShowRecipe from './components/RecipeFolder/ShowRecipe';
+
+import Scratchwork from './components/RecipeFolder/Scratchwork';
 
 
 
@@ -60,7 +63,26 @@ const App = () => {
 
 
   return (
-    <div>App
+    <div>
+     <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">What's Cookin'</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/kitchen">Kitchen</Nav.Link>
+            <Nav.Link href="/recipebook">Recipe Book</Nav.Link>
+            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown> */}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
         <main>
             <Routes>
                 {/* <Route path='/welcome' element={<Welcome/>} ></Route> */}
@@ -74,10 +96,9 @@ const App = () => {
 
                 <Route path='/recipebook' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes}/>} ></Route> 
                 <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe}/>}></Route>
-                <Route path='/editrecipe' element={<EditRecipe/>}></Route>
+                <Route path='/editrecipe/:id' element={<EditRecipe ingredients={ingredients} setIngredients={setIngredients}/>}></Route>
                 <Route path='/showrecipe/:id' element={<ShowRecipe recipe={recipe} setRecipe={setRecipe}/>}></Route>
-          
-
+                <Route path='/scratchwork' element={<Scratchwork/>}></Route>
 
             </Routes>
         </main>

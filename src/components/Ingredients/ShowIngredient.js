@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap'
 
 const ShowIngredient = ({ingredient, setIngredient}) => {
 
@@ -24,10 +25,17 @@ const ShowIngredient = ({ingredient, setIngredient}) => {
 
   return (
     <div>
-        <h1>{ingredient.name}</h1>
-        <h3>{ingredient.amount}</h3>
-        <h3>{ingredient.location}</h3>
-        <h3>{ingredient.image}</h3>
+        <Button >
+            <Link to='/kitchen' style={{ color:'white', textDecoration: 'none' }}>
+            Return to Kitchen
+          </Link>
+        </Button>
+        <div>
+            <h1>{ingredient.name}</h1>
+            <h3>{ingredient.amount}</h3>
+            <h3>{ingredient.location}</h3>
+            <h3>{ingredient.image}</h3>
+        </div>
     </div>
   )
 }

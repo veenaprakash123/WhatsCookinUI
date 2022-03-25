@@ -1,12 +1,12 @@
 import React from 'react'
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button, Card} from 'react-bootstrap'
 import { useState } from 'react'
 import {useNavigate} from 'react-router'
 
 
 function NewRecipe({addRecipe}) {
 
-    const [ingredientsList, setIngredientsList] = useState([ {ingredient: ""} ]);
+    const [ingredientsList, setIngredientsList] = useState([{ingredient: ""}]);
     const [meal, setMeal] = useState('')
     const [instructions, setInstructions] = useState('')
     const [recipe, setRecipe] = useState({})
@@ -18,12 +18,19 @@ function NewRecipe({addRecipe}) {
     }
 
     let handleChangeMeal = (e) => {
-        setMeal({...meal,[e.target.id]:e.target.value})
+        setMeal(e.target.value)
       }
 
     let handleChangeInstructions = (e) => {
-        setInstructions({...instructions,[e.target.id]:e.target.value})
+        setInstructions(e.target.value)
       }
+
+    let handleChangeIngredient = (e, index) => {
+        const {name, value} = e.target
+        const list = [...ingredientsList]
+        list[index][name] = value
+        setIngredientsList(list); 
+    }
 
     let handleRemove = (index) => {
         const list = [...ingredientsList];
@@ -34,20 +41,16 @@ function NewRecipe({addRecipe}) {
 
 
     let handleSubmit = async(e) => {
-
-        setRecipe({
-            meal: meal,
-            ingredients: ingredientsList,
-            instructions: instructions
-        })
-
         e.preventDefault()
-        console.log({recipe})
+        console.log(ingredientsList)
+
 
         let response = await fetch('http://localhost:4000/recipe', {
             method: "POST",
             body: JSON.stringify({
-                recipe
+                meal: meal,
+                ingredients: ingredientsList,
+                instructions: instructions
             }), 
             headers: {
                 'Content-Type':'application/json'
@@ -62,6 +65,7 @@ function NewRecipe({addRecipe}) {
 
   return (
     <div>
+        <Card>
         <form className='App' autoComplete='off' onSubmit={handleSubmit}>
 
             <div className='form-field'>
@@ -78,11 +82,11 @@ function NewRecipe({addRecipe}) {
     
                         <div key={index}  className="ingredients">
                             <div className='first-division'>
-                                <input name='ingredient' type='text' id='ingredient'/> 
+                                <input name='ingredient' type='text' id='ingredient' onChange={(e) => handleChangeIngredient(e, index)}/> 
                             </div>
                             <div className='second-division'>
                             {ingredientsList.length > 1 && 
-                                <button type='button' className='remove-btn' onClick={handleRemove}>
+                                <button type='button' className='remove-btn' value= {ing.ingredient} onClick={handleRemove}>
                                     <span>Remove</span>
                                 </button>
                             }
@@ -107,6 +111,7 @@ function NewRecipe({addRecipe}) {
                 </button>
             </div>
         </form>
+        </Card>
     </div>
   )
 }

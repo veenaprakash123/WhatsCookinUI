@@ -41,7 +41,8 @@ const EditIngredient = () => {
     })
     console.log(response)
     console.log(ingredient)
-    navigate(`/showingredient/${id}`)
+    navigate('/kitchen')
+    // navigate(`/showingredient/${id}`)
 
       }
     
@@ -52,22 +53,22 @@ const EditIngredient = () => {
     <div>
         <h1>New Ingredient</h1>
         <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" >
            <Form.Label>Ingredient</Form.Label>
            <Form.Control type="name" id="name" name="name" value={ingredient.name} onChange={handleChange} />
          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" >
            <Form.Label>Amount</Form.Label>
            <Form.Control type="amount" id="amount" name="amount" value={ingredient.amount} onChange={handleChange}/>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
            <Form.Label>Where do you store it?</Form.Label>
            <Form.Control type="location" id="location" name="location" value={ingredient.location} onChange={handleChange}/>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
            <Form.Label>Image</Form.Label>
            <Form.Control type="text" id="image" name="image" value={ingredient.image} onChange={handleChange}/>
         </Form.Group>
