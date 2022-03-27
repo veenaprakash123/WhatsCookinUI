@@ -88,7 +88,7 @@ const EditRecipe = () => {
             return(
                 <div key={index}  className="ingredients">
                     <div className='first-division'>
-                        <input name='ingredient' type='text' defaultValue={ing.ingredient} onClick={(e)=> handleChangeIngredient(e, index)}/> 
+                        <input name='ingredient' type='text' defaultValue={ing.ingredient} onChange={(e)=> handleChangeIngredient(e, index)}/> 
                     </div>
                     <div className='second-division'>
                         {recipe.ingredients.length > 1 && 
