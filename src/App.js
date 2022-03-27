@@ -32,6 +32,8 @@ const App = () => {
 
   const[recipeData, setRecipeData] = useState([])
 
+  const[onlineRecipe, setOnlineRecipe] = useState({})
+
 
   let getIngredients = async() => {
     console.log('yes')
@@ -123,9 +125,10 @@ const App = () => {
                 <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>}></Route>
                 <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
                 <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
+
                 <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients} getOnlineRecipes={getOnlineRecipes} ingredientNames={ingredientNames} recipeData={recipeData} setRecipeData={setRecipeData} />}></Route>
-                <Route path='/meallist' element={<MealList/>}></Route>
-                <Route path='/mealdetails/:id' element={<MealDetails/>}></Route>
+                <Route path='/meallist' element={<MealList onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
+                <Route path='/mealdetails/:id' element={<MealDetails onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
 
                 <Route path='/recipebook' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes}/>} ></Route> 
                 <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe}/>}></Route>
