@@ -48,20 +48,51 @@ const EditRecipe = () => {
     }
 
 
-    let handleSubmit = () => {
-        console.log('Submitting!')
+    let handleChangeIngredient = (e, index) => {
+        const {name, value} = e.target
+        const list = [...ingredients]
+        list[index][name] = value
+        setIngredients(list); 
     }
+
+    let handleRemove = (index) => {
+        const list = [...ingredients];
+        list.splice(index, 1);
+        setIngredients(list)
+    }
+
+
+    let handleSubmit = async(e) => {
+        e.preventDefault()
+
+        let response = await fetch('http://localhost:4000/recipe/edit/' + id, {
+        method: "PUT", 
+        body: JSON.stringify({
+            meal: meal,
+            ingredients: ingredients,
+            instructions: instructions 
+        }),
+        headers: {
+            'Content-Type':'application/json'
+        }  
+    })
+    console.log(response)
+    console.log(recipe)
+    navigate('/recipebook')
+    // navigate(`/showingredient/${id}`)
+
+      }
 
     let displayIngredients = ingredients? 
         ingredients.map((ing, index) => {
             return(
                 <div key={index}  className="ingredients">
                     <div className='first-division'>
-                        <input name='ingredient' type='text' defaultValue={ing.ingredient}/> 
+                        <input name='ingredient' type='text' defaultValue={ing.ingredient} onClick={(e)=> handleChangeIngredient(e, index)}/> 
                     </div>
                     <div className='second-division'>
                         {recipe.ingredients.length > 1 && 
-                            <button type='button' className='remove-btn' value={ing.ingredient} >
+                            <button type='button' className='remove-btn' value={ing.ingredient} onClick={handleRemove}>
                                 <span>Remove</span>
                             </button>
                         }
@@ -100,7 +131,7 @@ const EditRecipe = () => {
             </div>
 
             <div>
-                <button>
+           <button>
                     <span>Edit Recipe</span>
                 </button>
             </div>

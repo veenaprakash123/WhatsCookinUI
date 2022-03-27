@@ -27,7 +27,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     navigate('/kitchen')
   }
  
-  const displayIngredients =  ingredients? ingredients.map((ingredient) => {
+  const displayIngredients =  ingredients.map((ingredient) => {
     return(
         <div key={ingredient._id}>
           <Card>
@@ -40,7 +40,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
         </Card>
         </div>
     )
-  }): null 
+  })
 
   return (
     <div>

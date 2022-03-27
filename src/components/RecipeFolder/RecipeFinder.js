@@ -4,12 +4,12 @@ import { useState , useEffect} from 'react'
 import MealList from './MealList'
 
 
-const RecipeFinder = ({ingredients}) => {
+const RecipeFinder = ({ingredients, getOnlineRecipes, ingredientNames, recipeData, setRecipeData}) => {
 
     // const url = 'https://api.spoonacular.com/food/ingredients/butter'
 
     // const[items, setItems] = useState([])
-    const[recipeData, setRecipeData] = useState([])
+    // const[recipeData, setRecipeData] = useState([])
 
 
     function handleChange(e) {
@@ -19,64 +19,35 @@ const RecipeFinder = ({ingredients}) => {
     }
 
 
-    function getRecipes(){
-        fetch(
-            `https://api.spoonacular.com/recipes/findByIngredients?apiKey=3f66c12e8a4246909d9c82ce222efef4&ingredients=${ingredientNames}`
+    // function getOnlineRecipes(){
+    //     fetch(
+    //         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=3f66c12e8a4246909d9c82ce222efef4&ingredients=${ingredientNames}`
 
-        )
-        .then((response) => response.json())
-        .then((data) => {
-            setRecipeData(data)
-            console.log(data)
-        })
-        .catch(()=> {
-            console.log("error");
-        })
+    //     )
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         setRecipeData(data)
+    //         console.log(data)
+    //     })
+    //     .catch(()=> {
+    //         console.log("error");
+    //     })
 
-    }
+    // }
   
-    // const getIngredientNames = () => ingredients.map((ingredient)=> setItems(...items, ingredient.name).join(','))
-    
-    // console.log(items)
-    // console.log(ingredients)
 
-
-    // useEffect(()=> {
-
-
-
-
-    //     getIngredientNames()
-    //     console.log(items)
-    // }, [])
-
-
-
-    // useEffect(()=> {
-    //     const editDetails = async() => {
-    //       let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
-    //       let json = await ingredientResponse.json()
-    //       console.log(json)
-    //       setIngredient(json)
-    //     }
-    //     editDetails()
-    //     console.log(ingredient)
-    //   }, [id])
-
-
-
-    let ingredientNames = ingredients? ingredients.map((ingredient)=> {
-        return(
-            ingredient.name
-        )
-    }) : null
+    // let ingredientNames = ingredients? ingredients.map((ingredient)=> {
+    //     return(
+    //         ingredient.name
+    //     )
+    // }) : null
 
 
   return (
     <div>
         <input type="text" placeholder='Ex: egg' defaultValue={ingredientNames} onChange={handleChange}></input>
        
-        <button onClick={getRecipes}>Find Recipe</button>
+        <button onClick={getOnlineRecipes}>Find Recipe</button>
 
         {recipeData && <MealList recipeData={recipeData}/>}
         

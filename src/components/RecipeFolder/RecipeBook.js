@@ -30,6 +30,7 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
           <Card>
             <Link to={`/showrecipe/${recipe._id}`}><h1>{recipe.meal}</h1></Link>
             <Link to={`/showrecipe/${recipe._id}`} key={recipe._id}>View</Link>
+            <Link to={`/editrecipe/${recipe._id}`} key={recipe.id}>Edit</Link>
             <Button onClick= {() => deleteRecipe(recipe._id)}>Delete</Button> 
           </Card>
         </div>

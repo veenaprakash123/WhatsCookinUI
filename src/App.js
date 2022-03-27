@@ -16,6 +16,7 @@ import EditRecipe from './components/RecipeFolder/EditRecipe';
 import ShowRecipe from './components/RecipeFolder/ShowRecipe';
 import RecipeFinder from './components/RecipeFolder/RecipeFinder';
 import MealList from './components/RecipeFolder/MealList';
+import MealDetails from './components/RecipeFolder/MealDetails';
 
 import Scratchwork from './components/RecipeFolder/Scratchwork';
 
@@ -28,6 +29,8 @@ const App = () => {
   const[recipe, setRecipe] = useState('');
   const[ingredients, setIngredients] = useState([]);
   const[ingredient, setIngredient] = useState({});
+
+  const[recipeData, setRecipeData] = useState([])
 
 
   let getIngredients = async() => {
@@ -64,6 +67,31 @@ const App = () => {
   }
 
 
+  let ingredientNames = ingredients? ingredients.map((ingredient)=> {
+    return(
+        ingredient.name
+    )
+    }) : null
+
+
+
+  let getOnlineRecipes = () => {
+    fetch(
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=3f66c12e8a4246909d9c82ce222efef4&ingredients=${ingredientNames}`
+
+    )
+    .then((response) => response.json())
+    .then((data) => {
+        setRecipeData(data)
+        console.log(data)
+    })
+    .catch(()=> {
+        console.log("error");
+    })
+
+  }
+
+
   return (
     <div>
      <Navbar bg="light" expand="lg">
@@ -95,8 +123,9 @@ const App = () => {
                 <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>}></Route>
                 <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
                 <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
-                <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients}/>}></Route>
+                <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients} getOnlineRecipes={getOnlineRecipes} ingredientNames={ingredientNames} recipeData={recipeData} setRecipeData={setRecipeData} />}></Route>
                 <Route path='/meallist' element={<MealList/>}></Route>
+                <Route path='/mealdetails/:id' element={<MealDetails/>}></Route>
 
                 <Route path='/recipebook' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes}/>} ></Route> 
                 <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe}/>}></Route>
