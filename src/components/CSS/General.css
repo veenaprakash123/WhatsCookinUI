@@ -6,20 +6,76 @@ body{
 
 }
 
+.body-red {
+    background-color: brown;
+    height: auto;
+}
 
+.welcome {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    font-family: 'Franklin Gothic Medium';
+    align-self: center;
+    padding-top: 15%;
+    /* padding-top: 15%;
+    padding-left: 35%; */
+    
+}
 
-h1 {
-    padding-left: 3%;
-    padding-top: 2%;
+.welcome-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4%;
 }
 
 
+
+.main-header {
+    padding-left: 5%;
+    padding-top: 2%;
+    background-color: brown;
+    color: antiquewhite;
+}
+
+
+.intro-text {
+    color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 3%;
+}
+
 .subheading {
-    padding-left: 3%;
+    padding-left: 5%;
     padding-top: 2%;
     padding-bottom: 2%;
 }
 
 .addButton {
-    padding-left: 3%;
+    padding-left: 5%;
+}
+
+.carousel {
+    text-align: center;
+    margin-left: 10%;
+    margin: 0%;
+    width: 100%;
+}
+
+.formfields{
+    padding-left: 15%;
+    padding-right: 15%;
+ 
+}
+
+.enter {
+    margin-left: 15%;
+}
+
+.card.custom-class {
+    background-color: rgba(245, 245, 245, 0.4);
 }

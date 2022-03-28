@@ -33,7 +33,7 @@ const App = () => {
   const[ingredients, setIngredients] = useState([]);
   const[ingredient, setIngredient] = useState({});
 
-  const[recipeData, setRecipeData] = useState([])
+  const[recipesData, setRecipesData] = useState([])
 
   const[onlineRecipe, setOnlineRecipe] = useState({})
 
@@ -98,15 +98,15 @@ const App = () => {
         <main>
             <Routes>
                 {/* <Route path='/welcome' element={<Welcome/>} ></Route> */}
+                <Route path='/welcome' element={<Welcome/>}></Route>
                 <Route path='/session/login' element={<Login/>} ></Route>
                 <Route path='/session/register' element={<Register/>} ></Route>
-
                 <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>} ></Route>
                 <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>}></Route>
                 <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
                 <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
 
-                <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients} recipeData={recipeData} setRecipeData={setRecipeData} />}></Route>
+                <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients} recipesData={recipesData} setRecipeData={setRecipesData} />}></Route>
                 <Route path='/meallist' element={<MealList onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
                 <Route path='/mealdetails/:id' element={<MealDetails onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
                 <Route path='/addonlinerecipe/:id' element={<AddOnlineRecipe addRecipe={addRecipe} onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
@@ -117,7 +117,7 @@ const App = () => {
                 <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe}/>}></Route>
                 <Route path='/editrecipe/:id' element={<EditRecipe ingredients={ingredients} setIngredients={setIngredients}/>}></Route>
                 <Route path='/showrecipe/:id' element={<ShowRecipe recipe={recipe} setRecipe={setRecipe}/>}></Route>
-                <Route path='/readytogo' element={<ReadyToGo ingredients={ingredients} recipes={recipes}/>}></Route>
+                <Route path='/readytogo' element={<ReadyToGo ingredients={ingredients} recipes={recipes} getIngredients={getIngredients} getRecipes={getRecipes}/>}></Route>
                 <Route path='/scratchwork' element={<Scratchwork/>}></Route>
 
 

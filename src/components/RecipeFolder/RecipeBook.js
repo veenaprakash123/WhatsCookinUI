@@ -2,6 +2,7 @@ import React from 'react'
 import {Button, Card, Carousel} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import '../CSS/General.css'
 
 
 const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
@@ -28,10 +29,12 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
     return(
         <div key={recipe._id}>
           <Card>
-            <Link to={`/showrecipe/${recipe._id}`}><h1>{recipe.meal}</h1></Link>
-            <Link to={`/showrecipe/${recipe._id}`} key={recipe._id}>View</Link>
-            <Link to={`/editrecipe/${recipe._id}`} key={recipe.id}>Edit</Link>
+            <Card.Title>{recipe.meal}</Card.Title>
+            <div className='links'>
+            <Card.Link href={`/showrecipe/${recipe._id}`}>View</Card.Link>
+            <Card.Link href={`/editrecipe/${recipe._id}`}>Edit</Card.Link>
             <Button onClick= {() => deleteRecipe(recipe._id)}>Delete</Button> 
+            </div>
           </Card>
         </div>
     )
@@ -40,20 +43,19 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
 
   return (
     <div>
-        <h1>RecipeBook</h1>
-        <div className='center'> 
-        <Carousel style={{width: '80%' , height: '20rem'}}>
+        <h1 className='main-header'>Recipe Book</h1>
+
+        <div> 
+        <Carousel className='carousel' style={{width: '100%' , height: '17rem', textAlign: 'center'}}>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-100" 
               src="https://www.itl.cat/pngfile/big/285-2853509_food-wallpaper-hd-high-resolution-food-images-hd.jpg"
               alt="First slide"
             />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
+
           </Carousel.Item>
+
           <Carousel.Item>
             <img
               className="d-block w-100"
@@ -61,28 +63,23 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
               alt="Second slide"
             />
 
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
           </Carousel.Item>
+          
           <Carousel.Item>
             <img
               className="d-block w-100"
               src="https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_1280.jpg"
               alt="Third slide"
             />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
         </div>
 
+        <div className='container'>
 
         {displayRecipes}
+
+        </div>
 
         <Button>
           <Link to='/newrecipe' style={{ color:'white', textDecoration: 'none' }}>

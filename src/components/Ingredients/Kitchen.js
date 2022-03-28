@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Card} from 'react-bootstrap'
+import {Button, Card, ListGroup} from 'react-bootstrap'
 import {Link, useParams} from 'react-router-dom'
 import {useNavigate} from 'react-router'
 import '../CSS/Kitchen.css'
@@ -34,17 +34,24 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     if (ingredient.location == 'fridge') {
     return(
         <div key={ingredient._id}>
-          <Card key={ingredient._id}>
-            <Card.Img variant="top" src="holder.js/100px180" ></Card.Img>
-            <Card.Title key={ingredient._id}>{ingredient.name}</Card.Title>
-            <div className='links'>
-            <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
-            <Card.Link href={`/showingredient/${ingredient._id}`} key={ingredient._id}>View</Card.Link>
-            <Button onClick= {() => deleteIngredient(ingredient._id)}>Delete</Button> 
-            </div>
-        </Card>
+          <Card key={ingredient._id} className='custom-class'>
+            <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '10rem' , height:'10rem' }} ></Card.Img>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <Card.Title key={ingredient._id}>{ingredient.name}</Card.Title>
+              </ListGroup.Item>
+            </ListGroup>
+
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
+                <Card.Link href={`/showingredient/${ingredient._id}`} key={ingredient._id}>View</Card.Link>
+                <Card.Link><Button onClick= {() => deleteIngredient(ingredient._id)} variant="light">Delete</Button> </Card.Link>
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
         </div>
-    )
+      )
     }
   })
 
@@ -55,14 +62,19 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     return(
         <div key={ingredient._id}>
           <Card>
-          <Card.Img variant="top" src="holder.js/100px180" ></Card.Img>
-          <Card.Title key={ingredient._id}>{ingredient.name}</Card.Title>
-          <div className='links'>
-          <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
-          <Card.Link href={`/showingredient/${ingredient._id}`} key={ingredient._id}>View</Card.Link>
-          <Card.Link><Button onClick= {() => deleteIngredient(ingredient._id)}>Delete</Button> </Card.Link>
-          </div>
-  
+          <Card.Img variant="top" src={`${ingredient.image}`} ></Card.Img>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <Card.Title key={ingredient._id} style={{alignContent: 'center'}}>{ingredient.name}</Card.Title>
+            </ListGroup.Item>
+         </ListGroup>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
+              <Card.Link href={`/showingredient/${ingredient._id}`} key={ingredient._id}>View</Card.Link>
+              <Card.Link><Button onClick= {() => deleteIngredient(ingredient._id)} variant="light">Delete</Button> </Card.Link>
+            </ListGroup.Item>
+         </ListGroup>
         </Card>
         </div>
     )
@@ -70,12 +82,12 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
   })
 
   return (
-    <div>
+    <div className='body-red' style={{height: 700}}>
 
-        <h1 className='header'>Kitchen</h1>
+        <h1 className='main-header'>Kitchen</h1>
 
         <div className='addButton'>
-        <Button variant="light" onClick={() => navigate('/newingredient')}>
+        <Button variant="dark" onClick={() => navigate('/newingredient')}>
           Add Ingredient
         </Button>
         </div>

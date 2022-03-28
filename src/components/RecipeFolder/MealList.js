@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import MealDetails from './MealDetails'
 import {Card} from 'react-bootstrap'
 import {Link } from 'react-router-dom'
@@ -7,6 +6,20 @@ import {Link } from 'react-router-dom'
 
 const MealList = ({recipeData, onlineRecipe, setOnlineRecipe}) => {
 
+    const[imageUrl, setImageUrl]= useState("")
+
+    // useEffect(()=>{
+    //     fetch(
+    //         `https://api.spoonacular.com/recipes/${recipeData.id}/information?apiKey=3f66c12e8a4246909d9c82ce222efef4&includeNutrition=false`
+    //     )
+    //     .then((response)=> response.json())
+    //     .then((data)=>{
+    //         setImageUrl(data.image)
+    //     })
+    //     .catch(()=>{
+    //         console.log('error')
+    //     })
+    // })
 
 
 
@@ -16,7 +29,7 @@ const MealList = ({recipeData, onlineRecipe, setOnlineRecipe}) => {
             <Card>
             <div>
                 <Link to={`/mealdetails/${recipe.id}`}><h3>{recipe.title}</h3></Link>
-                <img src={recipe.image} alt='recipe'></img>
+                <img src={imageUrl} alt='recipe'></img>
             </div>
             </Card>
             </div>

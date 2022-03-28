@@ -4,7 +4,7 @@ import { useState , useEffect} from 'react'
 import MealList from './MealList'
 
 
-const RecipeFinder = ({ingredients, recipeData, setRecipeData}) => {
+const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
 
     // const url = 'https://api.spoonacular.com/food/ingredients/butter'
 
@@ -13,9 +13,9 @@ const RecipeFinder = ({ingredients, recipeData, setRecipeData}) => {
 
 
     function handleChange(e) {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         ingredientNames = e.target.value
-        console.log(ingredientNames)
+        // console.log(ingredientNames)
     }
 
 
@@ -26,7 +26,7 @@ const RecipeFinder = ({ingredients, recipeData, setRecipeData}) => {
         )
         .then((response) => response.json())
         .then((data) => {
-            setRecipeData(data)
+            setRecipesData(data)
             console.log(data)
         })
         .catch(()=> {
@@ -49,7 +49,7 @@ const RecipeFinder = ({ingredients, recipeData, setRecipeData}) => {
        
         <button onClick={getOnlineRecipes}>Find Recipe</button>
 
-        {recipeData && <MealList recipeData={recipeData}/>}
+        {recipesData && <MealList recipeData={recipesData}/>}
         
     </div>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import { useNavigate } from 'react-router';
 import {Form, Button} from 'react-bootstrap'
+import './CSS/General.css'
 
 
 const Login = () => {
@@ -54,19 +55,19 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Login </h1>
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <h1 className='main-header'>Login </h1>
+      <Form onSubmit={handleSubmit} style={{marginTop: 70}}>
+        <Form.Group className="mb-3 formfields" controlId="formBasicEmail">
            <Form.Label>Username</Form.Label>
-           <Form.Control type="username" placeholder="Enter email" />
+           <Form.Control type="username" placeholder="Enter email" className='formfields'/>
          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3 formfields" controlId="formBasicPassword">
            <Form.Label>Password</Form.Label>
            <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
-         <Button variant="primary" type="submit">
+         <Button className='register-button enter' variant="dark" type="submit">
            Sign In 
          </Button>
       </Form>

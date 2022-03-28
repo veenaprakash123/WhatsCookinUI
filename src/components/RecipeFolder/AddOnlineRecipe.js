@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import {useNavigate} from 'react-router'
 import {Button, Card} from 'react-bootstrap'
-import IngredientFields from './IngredientFields'
 
 const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe}) => {
 
