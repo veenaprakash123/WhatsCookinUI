@@ -35,7 +35,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     return(
         <div key={ingredient._id}>
           <Card key={ingredient._id} className='custom-class'>
-            <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '10rem' , height:'10rem' }} ></Card.Img>
+            <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '10rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Card.Title key={ingredient._id}>{ingredient.name}</Card.Title>

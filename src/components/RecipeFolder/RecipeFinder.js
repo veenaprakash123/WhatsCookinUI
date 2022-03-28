@@ -45,7 +45,7 @@ const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
 
   return (
     <div>
-        <input type="text" placeholder='Ex: egg' defaultValue={ingredientNames} onChange={handleChange}></input>
+        <input type="text" placeholder='Ex: egg' defaultValue={ingredientNames} onChange={handleChange} style={{width: '40rem', height: '10rem'}}></input>
        
         <button onClick={getOnlineRecipes}>Find Recipe</button>
 
