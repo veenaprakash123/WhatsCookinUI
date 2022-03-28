@@ -19,6 +19,7 @@ import MealList from './components/RecipeFolder/MealList';
 import MealDetails from './components/RecipeFolder/MealDetails';
 import AddOnlineRecipe from './components/RecipeFolder/AddOnlineRecipe';
 import ReadyToGo from './components/RecipeFolder/ReadyToGo';
+import Matchlist from './components/RecipeFolder/Matchlist'
 
 
 import Scratchwork from './components/RecipeFolder/Scratchwork';
@@ -36,6 +37,7 @@ const App = () => {
   const[recipesData, setRecipesData] = useState([])
 
   const[onlineRecipe, setOnlineRecipe] = useState({})
+  const[recipeMatches, setRecipeMatches] = useState([])
 
 
 
@@ -117,7 +119,8 @@ const App = () => {
                 <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe}/>}></Route>
                 <Route path='/editrecipe/:id' element={<EditRecipe ingredients={ingredients} setIngredients={setIngredients}/>}></Route>
                 <Route path='/showrecipe/:id' element={<ShowRecipe recipe={recipe} setRecipe={setRecipe}/>}></Route>
-                <Route path='/readytogo' element={<ReadyToGo ingredients={ingredients} recipes={recipes} getIngredients={getIngredients} getRecipes={getRecipes}/>}></Route>
+                <Route path='/readytogo' element={<ReadyToGo ingredients={ingredients} recipes={recipes} getIngredients={getIngredients} getRecipes={getRecipes} recipeMatches={recipeMatches} setRecipeMatches={setRecipeMatches}/>}></Route>
+                <Route path='/matchlist' element={<Matchlist recipeMatches={recipeMatches} setRecipeMatches={setRecipeMatches}/>}></Route>
                 <Route path='/scratchwork' element={<Scratchwork/>}></Route>
 
 

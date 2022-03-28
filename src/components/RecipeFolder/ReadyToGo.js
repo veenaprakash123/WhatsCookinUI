@@ -1,19 +1,20 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 import {useEffect, useState} from 'react'
+import Matchlist from './Matchlist'
 
-const ReadyToGo = ({recipes, ingredients}) => {
+const ReadyToGo = ({recipes, ingredients, recipeMatches, setRecipeMatches}) => {
 
   // const [recipes, setRecipes] = useState([])
 
   // const[ingredients, setIngredients]= useState([])
 
 
-  function getMyRecipes() {
+function getMyRecipes() {
 
     for ( var i=0 ; i < recipes.length; i++){
-      console.log(recipes[i])
-      console.log(ingredients)
+      // console.log(recipes[i])
+      // console.log(ingredients)
       let recipeIngredients = recipes[i].ingredients
   
       let matches = 0
@@ -23,35 +24,32 @@ const ReadyToGo = ({recipes, ingredients}) => {
       for (var j=0 ; j < recipeIngredients.length; j++){
   
           for(var k=0 ; k < ingredients.length; k++){
-              console.log(recipeIngredients[j].ingredient, ingredients[k])
+              // console.log(recipeIngredients[j].ingredient, ingredients[k])
               if(recipeIngredients[j].ingredient === ingredients[k].name){
                   matches = matches + 1;
               }
           }
       }
-      console.log(matches, matchesNeeded)
+      // console.log(matches, matchesNeeded)
       if (matches === matchesNeeded){
           console.log(recipes[i].meal)
-          return(
-              <div key={recipes[i].id}> 
-                  {recipes[i].meal}
-              </div>
-          )
-        } console.log('oops')
+          setRecipeMatches([...recipeMatches, recipes[i]])
+          // return(
+          //     <div key={recipes[i].id}> 
+          //         {recipes[i].meal}
+          //     </div>
+          // )
+        } 
     }
   }
-
-
-  function handleClick () {
-    console.log('Hi!')
-  }
-
-
 
   return (
       
     <div>
       <Button onClick={getMyRecipes}>Recipes at my finger tips!</Button>
+
+      {recipeMatches && <Matchlist recipeMatches={recipeMatches}/>}
+
     </div>
   )
 }
