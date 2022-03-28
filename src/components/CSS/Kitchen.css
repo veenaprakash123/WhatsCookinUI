@@ -1,0 +1,22 @@
+.collection {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 4%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 15rem 15rem 15rem 15rem;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}

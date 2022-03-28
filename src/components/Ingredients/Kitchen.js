@@ -2,6 +2,8 @@ import React from 'react'
 import {Button, Card} from 'react-bootstrap'
 import {Link, useParams} from 'react-router-dom'
 import {useNavigate} from 'react-router'
+import '../CSS/Kitchen.css'
+import '../CSS/General.css'
 
 
 const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
@@ -27,28 +29,76 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     navigate('/kitchen')
   }
  
-  const displayIngredients =  ingredients.map((ingredient) => {
+  const displayIngredientsFridge =  ingredients.map((ingredient) => {
+
+    if (ingredient.location == 'fridge') {
     return(
         <div key={ingredient._id}>
-          <Card>
-            <h1 key={ingredient._id}>{ingredient.name}</h1>
-            <div>
-              <Link to={`/editingredient/${ingredient._id}`} key={ingredient.id} onClick={ingredientInFocus} >Edit</Link>
-              <Link to={`/showingredient/${ingredient._id}`} key={ingredient._id} >View</Link>
-              <Button onClick= {() => deleteIngredient(ingredient._id)}>Delete</Button> 
-          </div> 
+          <Card key={ingredient._id}>
+            <Card.Img variant="top" src="holder.js/100px180" ></Card.Img>
+            <Card.Title key={ingredient._id}>{ingredient.name}</Card.Title>
+            <div className='links'>
+            <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
+            <Card.Link href={`/showingredient/${ingredient._id}`} key={ingredient._id}>View</Card.Link>
+            <Button onClick= {() => deleteIngredient(ingredient._id)}>Delete</Button> 
+            </div>
         </Card>
         </div>
     )
+    }
+  })
+
+
+  const displayIngredientsPantry = ingredients.map((ingredient) => {
+
+    if (ingredient.location == 'pantry') {
+    return(
+        <div key={ingredient._id}>
+          <Card>
+          <Card.Img variant="top" src="holder.js/100px180" ></Card.Img>
+          <Card.Title key={ingredient._id}>{ingredient.name}</Card.Title>
+          <div className='links'>
+          <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
+          <Card.Link href={`/showingredient/${ingredient._id}`} key={ingredient._id}>View</Card.Link>
+          <Card.Link><Button onClick= {() => deleteIngredient(ingredient._id)}>Delete</Button> </Card.Link>
+          </div>
+  
+        </Card>
+        </div>
+    )
+    }
   })
 
   return (
     <div>
-        <h1>Kitchen</h1>
-        {displayIngredients}
-        <Button>
-          <Link to={'/newingredient'}>Add Ingredient</Link>
+
+        <h1 className='header'>Kitchen</h1>
+
+        <div className='addButton'>
+        <Button variant="light" onClick={() => navigate('/newingredient')}>
+          Add Ingredient
         </Button>
+        </div>
+
+        <h3 className='subheading'>Fridge</h3>
+
+        <div className='container'>
+          
+          {displayIngredientsFridge}
+
+
+        </div>
+
+
+        <h3 className='subheading'>Pantry</h3>
+
+        <div className='container'>
+
+          {displayIngredientsPantry}
+
+
+        </div>
+
     </div>
 
   )

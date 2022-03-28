@@ -1,0 +1,25 @@
+body{
+    margin: 0%;
+    background-color: brown;
+    background-size: auto;
+    height: auto;
+
+}
+
+
+
+h1 {
+    padding-left: 3%;
+    padding-top: 2%;
+}
+
+
+.subheading {
+    padding-left: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.addButton {
+    padding-left: 3%;
+}

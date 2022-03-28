@@ -25,6 +25,16 @@ const ShowRecipe = ({recipe, setRecipe}) => {
     }) : null
         
 
+    // function removeTags(str) {
+    //     if ((str===null) || (str===''))
+    //         return false;
+    //     else
+    //         str = str.toString();
+    //     return str.replace( /(<([^>]+)>)/ig, ' ')
+  
+    //   }
+    
+    // const displayInstructions = removeTags(recipe.instructions)
 
   return (
 

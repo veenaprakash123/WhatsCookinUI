@@ -47,6 +47,9 @@ const EditRecipe = () => {
         setIngredients([...ingredients, {ingredient: ""}])
     }
 
+    let handleChangeInstructions = (e) => {
+        setInstructions(e.target.value)
+      }
 
     let handleChangeIngredient = (e, index) => {
         const {name, value} = e.target
@@ -127,7 +130,7 @@ const EditRecipe = () => {
            
             <div className='form-field'>
                 <label htmlFor='meal'>Instructions</label>
-                <input name='instructions' type='text' id='instructions' defaultValue={recipe.instructions}/>
+                <input name='instructions' type='text' id='instructions' defaultValue={recipe.instructions} onChange={handleChangeInstructions}/>
             </div>
 
             <div>

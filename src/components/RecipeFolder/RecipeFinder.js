@@ -4,7 +4,7 @@ import { useState , useEffect} from 'react'
 import MealList from './MealList'
 
 
-const RecipeFinder = ({ingredients, getOnlineRecipes, ingredientNames, recipeData, setRecipeData}) => {
+const RecipeFinder = ({ingredients, recipeData, setRecipeData}) => {
 
     // const url = 'https://api.spoonacular.com/food/ingredients/butter'
 
@@ -19,28 +19,28 @@ const RecipeFinder = ({ingredients, getOnlineRecipes, ingredientNames, recipeDat
     }
 
 
-    // function getOnlineRecipes(){
-    //     fetch(
-    //         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=3f66c12e8a4246909d9c82ce222efef4&ingredients=${ingredientNames}`
+    function getOnlineRecipes(){
+        fetch(
+            `https://api.spoonacular.com/recipes/findByIngredients?apiKey=3f66c12e8a4246909d9c82ce222efef4&ingredients=${ingredientNames}`
 
-    //     )
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         setRecipeData(data)
-    //         console.log(data)
-    //     })
-    //     .catch(()=> {
-    //         console.log("error");
-    //     })
+        )
+        .then((response) => response.json())
+        .then((data) => {
+            setRecipeData(data)
+            console.log(data)
+        })
+        .catch(()=> {
+            console.log("error");
+        })
 
-    // }
+    }
   
 
-    // let ingredientNames = ingredients? ingredients.map((ingredient)=> {
-    //     return(
-    //         ingredient.name
-    //     )
-    // }) : null
+    let ingredientNames = ingredients? ingredients.map((ingredient)=> {
+        return(
+            ingredient.name
+        )
+    }) : null
 
 
   return (
