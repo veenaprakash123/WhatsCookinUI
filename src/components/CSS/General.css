@@ -78,15 +78,23 @@ body{
 }
 
 .card.custom-class {
-    background-color: rgba(245, 245, 245, 0.4);
+    background-color: rgba(245, 245, 245, 0.7);
 }
 
 .list-group-item {
-    background-color: rgba(245, 245, 245, 0.4);
+    background-color: rgba(245, 245, 245, 0.7);
 }
 
 .item-details{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+
+.recipe-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 10px;
 }

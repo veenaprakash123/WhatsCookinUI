@@ -28,7 +28,7 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
   const displayRecipes = recipes? recipes.map((recipe) => {
     return(
         <div key={recipe._id}>
-          <Card>
+          <Card className='custom-class'>
             <Card.Title>{recipe.meal}</Card.Title>
             <div className='links'>
             <Card.Link href={`/showrecipe/${recipe._id}`}>View</Card.Link>

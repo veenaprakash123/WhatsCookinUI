@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link , Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from "react";
-import { Nav, Container, Navbar } from 'react-bootstrap';
+import { Nav, Container, Navbar, NavDropdown } from 'react-bootstrap';
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -85,14 +85,13 @@ const App = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/kitchen">Kitchen</Nav.Link>
-            <Nav.Link href="/recipebook">Recipe Book</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown title="Recipes" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/recipebook">My Recipe Book</NavDropdown.Item>
+              <NavDropdown.Item href="/readytogo">Ready To Go</NavDropdown.Item>
+              <NavDropdown.Item href="/findrecipe">Find New Recipes</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown> */}
+              {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
