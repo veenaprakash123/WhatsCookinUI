@@ -57,17 +57,17 @@ const Login = () => {
     <div>
       <h1 className='main-header'>Login </h1>
       <Form onSubmit={handleSubmit} style={{marginTop: 70}}>
-        <Form.Group className="mb-3 formfields" controlId="formBasicEmail">
+        <Form.Group className="mb-3 formfields" >
            <Form.Label>Username</Form.Label>
-           <Form.Control type="username" placeholder="Enter email" className='formfields'/>
+           <Form.Control type="username"  id="username"  placeholder="Enter email" className='formfields'/>
          </Form.Group>
 
-        <Form.Group className="mb-3 formfields" controlId="formBasicPassword">
+        <Form.Group className="mb-3 formfields" >
            <Form.Label>Password</Form.Label>
-           <Form.Control type="password" placeholder="Password" />
+           <Form.Control type="password" id="password" placeholder="Password" />
         </Form.Group>
 
-         <Button className='register-button enter' variant="dark" type="submit">
+         <Button className='enter' variant="dark" type="submit">
            Sign In 
          </Button>
       </Form>

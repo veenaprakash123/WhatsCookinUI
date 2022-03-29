@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams, Link} from 'react-router-dom';
-import {Button} from 'react-bootstrap'
+import {Button, Card, ListGroup} from 'react-bootstrap'
+import '../CSS/General.css'
 
 const ShowIngredient = ({ingredient, setIngredient}) => {
 
@@ -25,16 +26,31 @@ const ShowIngredient = ({ingredient, setIngredient}) => {
 
   return (
     <div>
-        <Button >
+        <Button variant="dark" style={{marginTop: 30}} >
             <Link to='/kitchen' style={{ color:'white', textDecoration: 'none' }}>
             Return to Kitchen
           </Link>
         </Button>
-        <div>
-            <h1>{ingredient.name}</h1>
-            <h3>{ingredient.amount}</h3>
-            <h3>{ingredient.location}</h3>
-            <h3>{ingredient.image}</h3>
+        <div className='item-details'>
+        <Card style={{marginTop:'8rem', width:'15rem'}}>
+          <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '10rem' , height:'10rem', marginLeft:'10'}}></Card.Img>
+          <ListGroup variant="flush">
+            <ListGroup.Item style={{alignContent: 'center'}}>
+              <Card.Title key={ingredient._id} style={{alignContent: 'center'}}>{ingredient.name}</Card.Title>
+            </ListGroup.Item>
+         </ListGroup>
+          <ListGroup variant="flush">
+            <ListGroup.Item key={ingredient.id}>
+              Amount: {ingredient.amount}
+            </ListGroup.Item>
+            <ListGroup.Item key={ingredient.id}>
+              Location: {ingredient.location}
+            </ListGroup.Item>
+            <ListGroup.Item key={ingredient.id}>
+              <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
+            </ListGroup.Item>
+         </ListGroup>
+        </Card>
         </div>
     </div>
   )

@@ -50,6 +50,7 @@ body{
 }
 
 .subheading {
+    color:white;
     padding-left: 5%;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -78,4 +79,14 @@ body{
 
 .card.custom-class {
     background-color: rgba(245, 245, 245, 0.4);
+}
+
+.list-group-item {
+    background-color: rgba(245, 245, 245, 0.4);
+}
+
+.item-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

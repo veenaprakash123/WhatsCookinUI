@@ -33,7 +33,7 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
             <div className='links'>
             <Card.Link href={`/showrecipe/${recipe._id}`}>View</Card.Link>
             <Card.Link href={`/editrecipe/${recipe._id}`}>Edit</Card.Link>
-            <Button onClick= {() => deleteRecipe(recipe._id)}>Delete</Button> 
+            <Button onClick= {() => deleteRecipe(recipe._id)} variant="light">Delete</Button> 
             </div>
           </Card>
         </div>
@@ -43,10 +43,19 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
 
   return (
     <div>
+        <div style={{backgroundColor: 'brown'}} >
+
         <h1 className='main-header'>Recipe Book</h1>
 
+        <div className='addButton'>
+          <Button variant="dark" onClick={() => navigate('/newrecipe')}>
+            Add Recipe
+          </Button>
+        </div>
+        </div>
+
         <div> 
-        <Carousel className='carousel' style={{width: '100%' , height: '17rem', textAlign: 'center'}}>
+        <Carousel className='carousel' style={{width: '100%' , height: '10rem', textAlign: 'center'}}>
           <Carousel.Item>
             <img
               className="d-block w-100" 

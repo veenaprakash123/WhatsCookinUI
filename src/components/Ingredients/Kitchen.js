@@ -35,7 +35,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     return(
         <div key={ingredient._id}>
           <Card key={ingredient._id} className='custom-class'>
-            <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '10rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
+            <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '12rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Card.Title key={ingredient._id}>{ingredient.name}</Card.Title>
@@ -62,14 +62,14 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     return(
         <div key={ingredient._id}>
           <Card>
-          <Card.Img variant="top" src={`${ingredient.image}`} ></Card.Img>
+          <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '14rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
           <ListGroup variant="flush">
-            <ListGroup.Item>
+            <ListGroup.Item className='list-group-item'>
               <Card.Title key={ingredient._id} style={{alignContent: 'center'}}>{ingredient.name}</Card.Title>
             </ListGroup.Item>
          </ListGroup>
           <ListGroup variant="flush">
-            <ListGroup.Item>
+            <ListGroup.Item className='list-group-item'>
               <Card.Link href={`/editingredient/${ingredient._id}`} key={ingredient.id}>Edit</Card.Link>
               <Card.Link href={`/showingredient/${ingredient._id}`} key={ingredient._id}>View</Card.Link>
               <Card.Link><Button onClick= {() => deleteIngredient(ingredient._id)} variant="light">Delete</Button> </Card.Link>
@@ -82,7 +82,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
   })
 
   return (
-    <div className='body-red' style={{height: 700}}>
+    <div style={{backgroundColor: 'brown'}}>
 
         <h1 className='main-header'>Kitchen</h1>
 

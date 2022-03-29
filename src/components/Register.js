@@ -60,32 +60,32 @@ const Register = () => {
       <Form onSubmit={handleSubmit} method="POST" style={{marginTop: 70}}>
 
 
-        <Form.Group className="mb-3 formfields" controlId="formGroupEmail">
+        <Form.Group className="mb-3 formfields" >
           <Form.Label className="label">Name:</Form.Label>
           <Form.Control type="text" id="name" name="name" placeholder="Ex: Taylor Swift" onChange={handleChange}></Form.Control>
         </Form.Group>
 
-        <Form.Group className="mb-3 formfields" controlId="formUsername">
+        <Form.Group className="mb-3 formfields" >
           <Form.Label className="label">Username: </Form.Label>
           <Form.Control type="text" id="username" name="username" placeholder="Ex: Swiftie" onChange={handleChange}></Form.Control>
         </Form.Group>  
         
     
 
-        <Form.Group className="mb-3 formfields" controlId="formPassword">
+        <Form.Group className="mb-3 formfields" >
           <Form.Label className="label">Password:</Form.Label>
           <Form.Control type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange}></Form.Control>
         </Form.Group>
        
     
 
-        <Form.Group className="mb-3 formfields" controlId="formGroupEmail">
+        <Form.Group className="mb-3 formfields">
           <Form.Label className="label">Confirm Password:</Form.Label>
           <Form.Control type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" onChange={handleChange}></Form.Control>
         </Form.Group>
        
 
-          <Button size="lg" className="register-button enter" value="Register" type="submit" variant="dark">Register</Button>
+          <Button size="lg" className="enter" value="Register" type="submit" variant="dark">Register</Button>
           <p>{message}</p> 
       </Form>
     </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Button, Card} from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
+import '../CSS/General.css'
 
 const NewIngredient = ({addIngredient}) => {
 
@@ -41,35 +42,35 @@ const NewIngredient = ({addIngredient}) => {
 
   return (
     <div>
-        <h1>New Ingredient</h1>
-        <Card>
-        <Form onSubmit={handleSubmit}>
+        <h1 className='main-header'>New Ingredient</h1>
+     
+        <Form onSubmit={handleSubmit} style={{marginTop: 70}}>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3 formfields" >
            <Form.Label>Name</Form.Label>
            <Form.Control type="name" id="name "name="name" placeholder="Enter name of new ingredient" onChange={handleChange} />
          </Form.Group>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3 formfields" >
            <Form.Label>Amount</Form.Label>
            <Form.Control type="amount" id="amount" name="amount" placeholder="Ex: 2 boxes" onChange={handleChange}/>
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 formfields">
            <Form.Label>Where do you store it?</Form.Label>
            <Form.Control type="location" id="location" name="location" placeholder="Ex: fridge" onChange={handleChange} />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 formfields">
            <Form.Label>Image</Form.Label>
            <Form.Control type="text" id="image" name="image" placeholder="Enter url of an online image" onChange={handleChange} />
         </Form.Group>
 
-         <Button variant="primary" type="submit">
+         <Button className='enter' variant="dark" type="submit">
            Add New Ingredient 
          </Button>
       </Form>
-      </Card>
+    
 
     </div>
   )
