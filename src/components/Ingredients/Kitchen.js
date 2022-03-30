@@ -34,7 +34,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     if (ingredient.location == 'fridge') {
     return(
         <div key={ingredient._id}>
-          <Card key={ingredient._id} className='custom-class'>
+          <Card key={ingredient._id}>
             <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '12rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
             <ListGroup variant="flush">
               <ListGroup.Item>

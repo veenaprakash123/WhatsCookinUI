@@ -16,7 +16,7 @@ const MealDetails = ({onlineRecipe, setOnlineRecipe}) => {
 
     useEffect(()=> {
         fetch(
-            `https://api.spoonacular.com/recipes/${id}/information?apiKey=3f66c12e8a4246909d9c82ce222efef4&includeNutrition=false`
+            `https://api.spoonacular.com/recipes/${id}/information?apiKey=5d0b0736e8d24604ba71a7ac99a5571b&includeNutrition=false`
         )
         .then((response)=> response.json())
         .then((data)=> {
@@ -57,7 +57,8 @@ const MealDetails = ({onlineRecipe, setOnlineRecipe}) => {
 
   return (
     <div>
-        {/* <img src={imageUrl} alt='recipe'> </img> */}
+      <h1 className='main-header'>Recipe Details</h1>
+        <img src={imageUrl} alt='recipe'> </img>
         <div>
           <h2>{recipeTitle}</h2>
           <img src={imageUrl} alt='recipe'></img>

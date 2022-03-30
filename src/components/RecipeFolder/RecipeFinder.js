@@ -21,7 +21,7 @@ const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
 
     function getOnlineRecipes(){
         fetch(
-            `https://api.spoonacular.com/recipes/findByIngredients?apiKey=3f66c12e8a4246909d9c82ce222efef4&ingredients=${ingredientNames}`
+            `https://api.spoonacular.com/recipes/findByIngredients?apiKey=5d0b0736e8d24604ba71a7ac99a5571b&ingredients=${ingredientNames}`
 
         )
         .then((response) => response.json())
@@ -30,7 +30,7 @@ const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
             console.log(data)
         })
         .catch(()=> {
-            console.log("error");
+            console.log('error');
         })
 
     }
