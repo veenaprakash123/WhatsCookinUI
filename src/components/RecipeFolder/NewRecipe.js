@@ -65,7 +65,11 @@ function NewRecipe({addRecipe}) {
 
   return (
     <div>
+
+        <h1 className='main-header'> New Recipe </h1>
+
         <Card>
+
         <form className='App' autoComplete='off' onSubmit={handleSubmit}>
 
             <div className='form-field'>

@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState , useEffect} from 'react'
 import MealList from './MealList'
+import '../CSS/General.css'
 
 
 const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
@@ -45,6 +46,12 @@ const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
 
   return (
     <div>
+        <div>
+            <h1 className='main-header'>Recipe Finder</h1>
+        </div>
+        <div className="finder-text">
+            <p>The field below is pre-populated with all of the ingredients you currently have in your kitchen! Remove or add ingredients to this field and find recipes that include all the ingredients! </p>
+        </div>
         <input type="text" placeholder='Ex: egg' defaultValue={ingredientNames} onChange={handleChange} style={{width: '40rem', height: '10rem'}}></input>
        
         <button onClick={getOnlineRecipes}>Find Recipe</button>

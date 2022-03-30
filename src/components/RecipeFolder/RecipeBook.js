@@ -43,15 +43,14 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
 
   return (
     <div>
-        <div style={{backgroundColor: 'brown'}} >
+        <div className='main-header'style={{backgroundColor: 'hsla(50, 33%, 25%, .75)'}}>
 
-        <h1 className='main-header'>Recipe Book</h1>
-
-        <div className='addButton'>
-          <Button variant="dark" onClick={() => navigate('/newrecipe')}>
-            Add Recipe
-          </Button>
-        </div>
+          <h1>Recipe Book</h1>
+          <div>
+            <Button variant="dark" onClick={() => navigate('/newrecipe')}>
+              Add Recipe
+            </Button>
+          </div>
         </div>
 
         <div> 

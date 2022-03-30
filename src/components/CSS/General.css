@@ -37,7 +37,7 @@ body{
 .main-header {
     padding-left: 5%;
     padding-top: 2%;
-    background-color: brown;
+    background-color: hsla(50, 33%, 25%, .75);
     color: antiquewhite;
 }
 
@@ -49,8 +49,19 @@ body{
     margin-top: 3%;
 }
 
+
+
+.finder-text {
+    color: black;
+    margin-left: 20%;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+
 .subheading {
-    color:white;
+    color:rgb(13, 13, 177);
+    font-style: italic;
     padding-left: 5%;
     padding-top: 2%;
     padding-bottom: 2%;

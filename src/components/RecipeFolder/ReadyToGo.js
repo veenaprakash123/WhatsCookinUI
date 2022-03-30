@@ -46,6 +46,11 @@ function getMyRecipes() {
   return (
       
     <div>
+      <div>
+        <h1>Ready to Go</h1>
+      </div>
+
+
       <Button onClick={getMyRecipes}>Recipes at my finger tips!</Button>
 
       {recipeMatches && <Matchlist recipeMatches={recipeMatches}/>}

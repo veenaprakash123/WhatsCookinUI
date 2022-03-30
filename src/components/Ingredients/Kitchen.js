@@ -82,14 +82,17 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
   })
 
   return (
-    <div style={{backgroundColor: 'brown'}}>
+    <div style={{backgroundColor:'#fff8dc'}}>
 
-        <h1 className='main-header'>Kitchen</h1>
 
-        <div className='addButton'>
-        <Button variant="dark" onClick={() => navigate('/newingredient')}>
-          Add Ingredient
-        </Button>
+        <div className='main-header'>
+          <h1>Kitchen</h1>
+
+          <div>
+          <Button variant="dark" onClick={() => navigate('/newingredient')}>
+            Add Ingredient
+          </Button>
+          </div>
         </div>
 
         <h3 className='subheading'>Fridge</h3>
