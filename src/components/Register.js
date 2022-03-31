@@ -23,7 +23,7 @@ const Register = () => {
 
       e.preventDefault()
  
-      fetch('http://localhost:7200/session/register', {
+      fetch('http://localhost:4000/session/register', {
           method: "POST", 
           body: JSON.stringify(createUser),
           headers: {

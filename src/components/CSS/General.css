@@ -109,3 +109,10 @@ body{
     justify-content: center;
     padding-left: 10px;
 }
+
+.logout {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 5%;
+    padding-bottom: 3%;
+}

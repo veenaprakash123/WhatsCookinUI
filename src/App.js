@@ -20,6 +20,7 @@ import MealDetails from './components/RecipeFolder/MealDetails';
 import AddOnlineRecipe from './components/RecipeFolder/AddOnlineRecipe';
 import ReadyToGo from './components/RecipeFolder/ReadyToGo';
 import Matchlist from './components/RecipeFolder/Matchlist'
+import Logout from './components/Logout';
 
 
 import Scratchwork from './components/RecipeFolder/Scratchwork';

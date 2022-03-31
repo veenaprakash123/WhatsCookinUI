@@ -4,6 +4,7 @@ import {Link, useParams} from 'react-router-dom'
 import {useNavigate} from 'react-router'
 import '../CSS/Kitchen.css'
 import '../CSS/General.css'
+import Logout from '../Logout'
 
 
 const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
@@ -112,6 +113,9 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
           {displayIngredientsPantry}
 
 
+        </div>
+        <div className='logout'>
+          {<Logout/>}
         </div>
 
     </div>
