@@ -39,8 +39,8 @@ const ShowRecipe = ({recipe, setRecipe}) => {
   return (
 
     <div>
-        <div style={{backgroundColor: 'brown'}}>
-          <h1 className='main-header'>Recipe Details</h1>
+        <div className='main-header'>
+          <h1>Recipe Details</h1>
           <Button variant="dark" style={{marginTop: 30}}>
             <Link to='/recipebook' style={{ color:'white', textDecoration: 'none' }}>
               Return to Recipes

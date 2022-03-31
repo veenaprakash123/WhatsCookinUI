@@ -19,7 +19,7 @@ const MealItem = ({meal}) => {
 
 
   return (
-    <div>
+    <div style={{backgroundColor:'#fff8dc'}}>
         <h1>{meal.title}</h1>
         <img src={imageUrl} alt="recipe"></img>
 

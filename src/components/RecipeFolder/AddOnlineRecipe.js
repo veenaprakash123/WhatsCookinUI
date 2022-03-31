@@ -19,7 +19,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe}) => {
 
     useEffect(()=> {
         fetch(
-            `https://api.spoonacular.com/recipes/${id}/information?apiKey=3f66c12e8a4246909d9c82ce222efef4&includeNutrition=false`
+            `https://api.spoonacular.com/recipes/${id}/information?apiKey=5d0b0736e8d24604ba71a7ac99a5571b&includeNutrition=false`
         )
         .then((response)=> response.json())
         .then((data)=> {

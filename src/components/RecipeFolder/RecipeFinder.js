@@ -45,7 +45,7 @@ const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
 
 
   return (
-    <div>
+    <div style={{backgroundColor:'#fff8dc'}}>
         <div>
             <h1 className='main-header'>Recipe Finder</h1>
         </div>

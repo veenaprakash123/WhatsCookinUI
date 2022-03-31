@@ -28,7 +28,7 @@ const MealList = ({recipeData, onlineRecipe, setOnlineRecipe}) => {
 
 
 return (
-    <div>
+    <div style={{backgroundColor:'#fff8dc'}}>
         <div>MealList</div>
        {recipeData.map((meal) => {
            return <MealItem key={meal.id} meal={meal}/>

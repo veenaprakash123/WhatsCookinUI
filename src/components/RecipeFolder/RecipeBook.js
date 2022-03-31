@@ -54,7 +54,7 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
         </div>
 
         <div> 
-        <Carousel className='carousel' style={{width: '100%' , height: '10rem', textAlign: 'center'}}>
+        <Carousel className='carousel'>
           <Carousel.Item>
             <img
               className="d-block w-100" 

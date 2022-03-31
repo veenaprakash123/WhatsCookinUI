@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router'
 import '../CSS/Kitchen.css'
 import '../CSS/General.css'
 import Logout from '../Logout'
+import Table from 'react-bootstrap/Table'
 
 
 const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
@@ -62,7 +63,12 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     if (ingredient.location == 'pantry') {
     return(
         <div key={ingredient._id}>
-          <Card>
+          <tr>
+            <td>{ingredient.name}</td>
+            <td>{ingredient.amount}</td>
+            <td>filler</td>
+          </tr>
+          {/* <Card>
           <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '14rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
           <ListGroup variant="flush">
             <ListGroup.Item className='list-group-item'>
@@ -76,13 +82,15 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
               <Card.Link><Button onClick= {() => deleteIngredient(ingredient._id)} variant="light">Delete</Button> </Card.Link>
             </ListGroup.Item>
          </ListGroup>
-        </Card>
+        </Card> */}
         </div>
     )
     }
   })
 
   return (
+
+  
     <div style={{backgroundColor:'#fff8dc'}}>
 
 
@@ -108,12 +116,21 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
 
         <h3 className='subheading'>Pantry</h3>
 
-        <div className='container'>
-
-          {displayIngredientsPantry}
-
-
+        <div>
+          <Table striped bordered hover size="sm" className='table'>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Amount</th>
+                <th>Perishable?</th>
+              </tr>
+            </thead>
+            <tbody>
+              {displayIngredientsPantry}
+            </tbody>
+          </Table>
         </div>
+
         <div className='logout'>
           {<Logout/>}
         </div>

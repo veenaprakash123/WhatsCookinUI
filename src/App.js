@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link , Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from "react";
 import { Nav, Container, Navbar, NavDropdown } from 'react-bootstrap';
+import Landing from './components/Landing';
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -21,7 +22,7 @@ import AddOnlineRecipe from './components/RecipeFolder/AddOnlineRecipe';
 import ReadyToGo from './components/RecipeFolder/ReadyToGo';
 import Matchlist from './components/RecipeFolder/Matchlist'
 import Logout from './components/Logout';
-
+import UpdatedKitchen from './components/Ingredients/UpdatedKitchen';
 
 import Scratchwork from './components/RecipeFolder/Scratchwork';
 
@@ -90,7 +91,6 @@ const App = () => {
               <NavDropdown.Item href="/recipebook">My Recipe Book</NavDropdown.Item>
               <NavDropdown.Item href="/readytogo">Ready To Go</NavDropdown.Item>
               <NavDropdown.Item href="/findrecipe">Find New Recipes</NavDropdown.Item>
-              <NavDropdown.Divider />
               {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
@@ -99,7 +99,11 @@ const App = () => {
     </Navbar>
         <main>
             <Routes>
+                <Route path='/updatedkitchen' element={<UpdatedKitchen/>}></Route>
+
+
                 {/* <Route path='/welcome' element={<Welcome/>} ></Route> */}
+                <Route path='/landing' element={<Landing/>}></Route>
                 <Route path='/welcome' element={<Welcome/>}></Route>
                 <Route path='/session/login' element={<Login/>} ></Route>
                 <Route path='/session/register' element={<Register/>} ></Route>

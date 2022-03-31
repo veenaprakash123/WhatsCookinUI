@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams, Link} from 'react-router-dom';
 import {Card, Button} from 'react-bootstrap'
+import '../CSS/General.css'
 
 const MealDetails = ({onlineRecipe, setOnlineRecipe}) => {
 
