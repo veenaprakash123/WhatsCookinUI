@@ -32,6 +32,36 @@ body{
     margin-top: 4%;
 }
 
+.landing{
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px;
+    grid-template-columns: 100px 1fr 1fr 100px;
+}
+
+.child{
+    border: 3px solid olive;
+}
+
+#kitchen-tile{
+    grid-row: 2;
+    grid-column: 2;
+}
+
+#recipebook-tile{
+    grid-row: 2;
+    grid-column: 3;
+}
+
+#readytogo-tile{
+    grid-row: 3;
+    grid-column: 2;
+}
+
+#findrecipe-tile{
+    grid-row: 3;
+    grid-column: 3;
+}
+
 
 
 .main-header {

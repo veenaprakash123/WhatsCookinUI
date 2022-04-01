@@ -53,6 +53,11 @@ const EditIngredient = () => {
   return (
     <div>
         <h1 className='main-header'>New Ingredient</h1>
+        <Button variant="dark" style={{marginTop: 30}} >
+            <Link to='/kitchen' style={{ color:'white', textDecoration: 'none' }}>
+            Return to Kitchen
+          </Link>
+        </Button>
 
         <Form onSubmit={handleSubmit} style={{marginTop: 70}}>
 

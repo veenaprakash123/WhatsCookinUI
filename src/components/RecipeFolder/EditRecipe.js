@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect} from 'react'
 import {  useParams, Link } from 'react-router-dom'
 import {useNavigate} from 'react-router'
-import {Card} from 'react-bootstrap'
+import {Card, Button} from 'react-bootstrap'
 
 const EditRecipe = () => {
 
@@ -112,6 +112,11 @@ const EditRecipe = () => {
 
   return (
     <div>
+        <Button variant="dark" style={{marginTop: 30}}>
+            <Link to='/recipebook' style={{ color:'white', textDecoration: 'none' }}>
+              Return to Recipes
+            </Link>
+        </Button>
         <Card>
         <form className='App' autoComplete='off' onSubmit={handleSubmit}>
 
