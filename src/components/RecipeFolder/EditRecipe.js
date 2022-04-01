@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect} from 'react'
 import {  useParams, Link } from 'react-router-dom'
 import {useNavigate} from 'react-router'
-import {Card, Button} from 'react-bootstrap'
+import {Card, Button, Form} from 'react-bootstrap'
 
 const EditRecipe = () => {
 
@@ -89,26 +89,23 @@ const EditRecipe = () => {
     navigate('/recipebook')
     // navigate(`/showingredient/${id}`)
 
-      }
+    }
 
     let displayIngredients = ingredients? 
         ingredients.map((ing, index) => {
             return(
-                <div key={index}  className="ingredients">
-                    <div className='first-division'>
-                        <input name='ingredient' type='text' defaultValue={ing.ingredient} onChange={(e)=> handleChangeIngredient(e, index)}/> 
-                    </div>
-                    <div className='second-division'>
-                        {recipe.ingredients.length > 1 && 
-                            <button type='button' className='remove-btn' value={ing.ingredient} onClick={handleRemove}>
+                <Form.Group key={index} className='mb-3 formfields'>
+                <Form.Control type="text" id="ingredient" name='ingredient' defaultValue={ing.ingredient} onChange={(e) => handleChangeIngredient(e, index)} ></Form.Control>
+                               
+                        {ingredients.length > 1 && 
+                            <Button type='button' className='remove-btn' variant='light' value= {ing.ingredient} onClick={handleRemove}>
                                 <span>Remove</span>
-                            </button>
+                            </Button>
                         }
-                    </div>
-                </div>
-            )
-        }): null
-    
+                </Form.Group>
+                ) }) : null
+
+
 
   return (
     <div>
@@ -117,39 +114,51 @@ const EditRecipe = () => {
               Return to Recipes
             </Link>
         </Button>
-        <Card>
-        <form className='App' autoComplete='off' onSubmit={handleSubmit}>
 
-            <div className='form-field'>
-                <label htmlFor='meal'>Meal</label>
-                <input name='meal' type='text' id='meal' defaultValue ={recipe.meal} onChange={handleMealChange} />
-            </div>
+        <Form autoComplete='off' onSubmit={handleSubmit} style={{marginTop: 70}}>
 
+            <Form.Group className='mb-3 formfields'>
+                <Form.Label style={{textDecoration:'underline'}}>Meal</Form.Label>
+                <Form.Control type="text" name='meal' id="meal" defaultValue ={recipe.meal} onChange={handleMealChange}></Form.Control>
+            </Form.Group>
 
-            <div className='form-field'>
-
-                <label htmlFor='ingredient'>Ingredients</label>
+            <Form.Label className='formfields' style={{textDecoration:'underline'}}> Ingredients: </Form.Label>
+            
                 
                 {displayIngredients}
 
-                <button type="button" className='add-btn' onClick={handleIngredientAdd}>
-                    <span>Add Ingredient to Recipe</span>
-                </button>
+            {/* <Button type="button" className='add-btn' onClick={handleIngredientAdd}>
+                <span>Add Ingredient to Recipe</span>
+            </Button> */}
 
-            </div>
+            <Button type="button" className='formfields' variant='dark' onClick={handleIngredientAdd} style={{marginLeft: '15%'}}>
+                <span>Add Ingredient to Recipe</span>
+            </Button>
+
+          
+            <Form.Group className='formfields'>
+                <Form.Label style={{textDecoration:'underline', marginTop:'2%'}}>Instructions</Form.Label>
+                <Form.Control type='text' id='instructions' defaultValue={recipe.instructions} onChange={handleChangeInstructions}></Form.Control>
+            </Form.Group>
            
-            <div className='form-field'>
+           
+            {/* <div className='form-field'>
                 <label htmlFor='meal'>Instructions</label>
                 <input name='instructions' type='text' id='instructions' defaultValue={recipe.instructions} onChange={handleChangeInstructions}/>
-            </div>
+            </div> */}
 
-            <div>
-           <button>
+            <Button type='submit' variant='dark' style={{marginLeft: '15%'}}>
+                <span>Add Recipe</span>
+            </Button>
+
+            {/* <div>
+                <button>
                     <span>Edit Recipe</span>
                 </button>
-            </div>
-        </form>
-        </Card>
+            </div> */}
+    
+        </Form>
+      
     </div>
   )
 }

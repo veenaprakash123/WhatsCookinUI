@@ -1,15 +1,21 @@
 import React from 'react'
 
-const FinalOnlineRecFields = ({ingredientsNew}) => {
+const FinalOnlineRecFields = ({ingredientsNew, setIngredientsNew}) => {
 
+  
 
-
-    let handleChangeIngredient=(e)=>{
-        console.log('you are changing something')
+    let handleChangeIngredient = (e, index) => {
+        const {name, value} = e.target
+        const list = [...ingredientsNew]
+        list[index][name] = value
+        setIngredientsNew(list); 
     }
 
-    let handleRemove=(e)=>{
-        console.log('remove')
+    let handleRemove = (index) => {
+        const list = [...ingredientsNew];
+        list.splice(index, 1);
+        console.log(list)
+        setIngredientsNew(list)
     }
 
     console.log(ingredientsNew)

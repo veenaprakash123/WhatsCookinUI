@@ -7,23 +7,22 @@ const OnlineRecipeFields = ({ingredientString, ingredientsNew, setIngredientsNew
 
     // let onlineIngredients = ingredientString? ingredientString.map((ing) => {
 
-    //     setIngredientsNew(...ingredientsNew, {ingredient: `${ing.name}`})
+    //     setIngredientsNew(ingredientsNew=>[...ingredientsNew, {ingredient: `${ing.name}`}])
 
     // }):null 
 
-    let ingredients = ingredientString? ingredientString.map((ing)=>{
-        return(
-            {ingredient: ing.name}
-        )
-    }): null
+    // let ingredients = ingredientsNew? ingredientsNew.map((ing)=>{
+    //     return(
+    //         {ingredient: ing.name}
+    //     )
+    // }): null
 
-console.log(ingredients, ingredientString)
 
   return (
     <div>
 
         
-        {ingredientString && <FinalOnlineRecFields ingredientsNew={ingredients}/> }
+        {ingredientString, setIngredientsNew && <FinalOnlineRecFields setIngredientsNew={setIngredientsNew} ingredientsNew={ingredientsNew}/> }
      
         
        </div>

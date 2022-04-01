@@ -28,6 +28,9 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
             setOnlineRecipe(data)
             setMeal(data.title)
             setIngredientString(data.extendedIngredients) 
+            setIngredientsNew(data.extendedIngredients.map((i)=>{
+                return{ingredient:i.name}
+            })) 
             setInstructions(data.instructions)
         })
         .catch(()=>{
@@ -36,6 +39,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
     }, [id])
 
     const handleIngredientAdd = () => {
+        console.log(ingredientsNew)
         setIngredientsNew([...ingredientsNew, {ingredient: ""}])
     }
 
@@ -52,8 +56,9 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
     }
 
     let handleRemove = (index) => {
-        const list = [...ingredientsNew];
-        list.splice(index, 1);
+        const list = ingredientsNew.filter((ing, i)=> i !== index)
+        // const list = [...ingredientsNew];
+        // list.splice(index, 1);
         setIngredientsNew(list)
     }
 
@@ -88,6 +93,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
             e.preventDefault()
             console.log(ingredientsNew)
     
+            console.log(onlineRecipe)
     
             let response = await fetch('http://localhost:4000/recipe', {
                 method: "POST",
@@ -124,7 +130,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
 
             <div className='form-field'>
                 <label htmlFor='meal'>Meal</label>
-                <input name='meal' type='text' id='meal' defaultValue ={onlineRecipe.title} />
+                <input name='meal' type='text' id='meal' defaultValue ={onlineRecipe.title}  />
             </div>
 
 
