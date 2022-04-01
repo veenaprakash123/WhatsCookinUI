@@ -5,20 +5,25 @@ import FinalOnlineRecFields from './FinalOnlineRecFields'
 const OnlineRecipeFields = ({ingredientString, ingredientsNew, setIngredientsNew}) => {
 
 
-    let onlineIngredients = ingredientString? ingredientString.map((ing) => {
+    // let onlineIngredients = ingredientString? ingredientString.map((ing) => {
 
-        setIngredientsNew(...ingredientsNew, {ingredient: `${ing.name}`})
+    //     setIngredientsNew(...ingredientsNew, {ingredient: `${ing.name}`})
 
-    }):null 
+    // }):null 
 
+    let ingredients = ingredientString? ingredientString.map((ing)=>{
+        return(
+            {ingredient: ing.name}
+        )
+    }): null
 
-
+console.log(ingredients, ingredientString)
 
   return (
     <div>
 
         
-        {ingredientsNew && <FinalOnlineRecFields ingredientsNew={ingredientsNew}/> }
+        {ingredientString && <FinalOnlineRecFields ingredientsNew={ingredients}/> }
      
         
        </div>

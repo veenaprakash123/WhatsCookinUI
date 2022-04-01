@@ -27,7 +27,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
             console.log(data)
             setOnlineRecipe(data)
             setMeal(data.title)
-            setIngredientString(data.extendedIngredients) // This is not adding each ingredient from the online recipe as an 'ingredient' object. it is just adding it as a string.
+            setIngredientString(data.extendedIngredients) 
             setInstructions(data.instructions)
         })
         .catch(()=>{
@@ -132,7 +132,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
 
                 <label htmlFor='ingredient'>Ingredients</label>
                 
-                {ingredientString, ingredientsNew, setIngredientsNew && <OnlineRecipeFields ingredients={ingredientString} setIngredientsNew={setIngredientsNew} ingredientsNew={ingredientsNew}/>}  
+                {ingredientString, ingredientsNew, setIngredientsNew && <OnlineRecipeFields ingredientString={ingredientString} setIngredientsNew={setIngredientsNew} ingredientsNew={ingredientsNew}/>}  
 
                 {/* {onlineRecipe && <IngredientFields onlineRecipe={onlineRecipe}/>} */}
 

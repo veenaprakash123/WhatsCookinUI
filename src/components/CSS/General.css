@@ -1,13 +1,13 @@
 body{
     margin: 0%;
-    background-color: brown;
+    background-color:hsla(50, 33%, 25%, .75);
     background-size: auto;
     height: auto;
 
 }
 
-.body-red {
-    background-color: brown;
+.body {
+    background-color: hsla(50, 33%, 25%, .75);
     height: auto;
 }
 
@@ -34,13 +34,44 @@ body{
 
 .landing{
     display: grid;
-    grid-template-rows: 50px 50px 50px 50px;
-    grid-template-columns: 100px 1fr 1fr 100px;
+    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-columns: 200px 1fr 1fr 200px;
 }
 
 .child{
-    border: 3px solid olive;
+    /* border-left: 3px solid black; */
+    font-style: italic;
+    font-family: cursive;
 }
+
+.child-1{
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.child-2{
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.child-3{
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    text-align: center;
+    padding-top: 30%;
+}
+
+.child-4{
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    text-align: center;
+    padding-top: 30%;
+}
+
 
 #kitchen-tile{
     grid-row: 2;

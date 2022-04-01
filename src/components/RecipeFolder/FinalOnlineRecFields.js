@@ -12,16 +12,18 @@ const FinalOnlineRecFields = ({ingredientsNew}) => {
         console.log('remove')
     }
 
+    console.log(ingredientsNew)
+
     let displayIngredients = ingredientsNew? 
     ingredientsNew.map((ing, index) => {
         return(
             <div key={index}  className="ingredients">
                 <div className='first-division'>
-                    <input name='ingredient' type='text' defaultValue={ing.name} onChange={(e)=> handleChangeIngredient(e, index)}/> 
+                    <input name='ingredient' type='text' defaultValue={ing.ingredient} onChange={(e)=> handleChangeIngredient(e, index)}/> 
                 </div>
                 <div className='second-division'>
                     {ingredientsNew.length > 1 && 
-                        <button type='button' className='remove-btn' value={ing.name} onClick={handleRemove}>
+                        <button type='button' className='remove-btn' value={ing.ingredient} onClick={handleRemove}>
                             <span>Remove</span>
                         </button>
                     }
