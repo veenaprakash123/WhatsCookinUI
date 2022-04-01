@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Button, Card} from 'react-bootstrap'
 import { useState } from 'react'
 import {useNavigate} from 'react-router'
+import '../CSS/General.css'
 
 
 function NewRecipe({addRecipe}) {
@@ -68,89 +69,49 @@ function NewRecipe({addRecipe}) {
 
         <h1 className='main-header'> New Recipe </h1>
 
-        {/* <Card> */}
+        <Form autoComplete='off' onSubmit={handleSubmit} style={{marginTop: 70}}>
 
-        <Form className='App formfields' autoComplete='off' onSubmit={handleSubmit} style={{marginTop: 70}}>
-
-            <Form.Group className='mb-3'>
-                <Form.Label> Meal</Form.Label>
+            <Form.Group className='mb-3 formfields'>
+                <Form.Label style={{textDecoration:'underline'}}> Meal</Form.Label>
                 <Form.Control type="text" name='meal' id="meal" onChange={handleChangeMeal}></Form.Control>
-                {/* <div className='first-division'>
-                    <input name='meal' type='text' id='meal' onChange={handleChangeMeal}/>
-                </div>
-        */}
             </Form.Group>
 
+            <Form.Label className='formfields' style={{textDecoration:'underline'}}> Ingredients: </Form.Label>
 
-            {/* <div className='form-field'>
+            {ingredientsList.map((ing, index) => {
+            return (
 
-                <label htmlFor='ingredient'>Ingredients</label>
-                
-                {ingredientsList.map((ing, index) => {
-                    return (
-
-                        // <Form.Group>
-                        //     <Form.Label> </Form.Label>
-                        //     <Form.Control></Form.Control>
-                        // </Form.Group>
-    
-                        <div key={index}  className="ingredients">
-                            <div className='first-division'>
-                                <input name='ingredient' type='text' id='ingredient' onChange={(e) => handleChangeIngredient(e, index)}/> 
-                            </div>
-                            <div className='second-division'>
-                            {ingredientsList.length > 1 && 
-                                <button type='button' className='remove-btn' value= {ing.ingredient} onClick={handleRemove}>
-                                    <span>Remove</span>
-                                </button>
-                            }
-                            </div>
-                        </div>
-                    )   
-                    })} */}
-
-                     <Form.Label> Ingredients: </Form.Label>
-
-                    {ingredientsList.map((ing, index) => {
-                    return (
-
-                        <Form.Group key={index} className='formfields'>
-                             <Form.Control type="text" id="ingredient" name='ingredient' onChange={(e) => handleChangeIngredient(e, index)} ></Form.Control>
-                             <div className='second-division'>
-                            {ingredientsList.length > 1 && 
-                                <Button type='button' className='remove-btn' variant='light' value= {ing.ingredient} onClick={handleRemove}>
-                                    <span>Remove</span>
-                                </Button>
-                            }
-                            </div>
-                        </Form.Group>
-                          )   
-                    })}
+            <Form.Group key={index} className='mb-3 formfields'>
+            <Form.Control type="text" id="ingredient" name='ingredient' onChange={(e) => handleChangeIngredient(e, index)} ></Form.Control>
+                           
+                    {ingredientsList.length > 1 && 
+                        <Button type='button' className='remove-btn' variant='light' value= {ing.ingredient} onClick={handleRemove}>
+                            <span>Remove</span>
+                        </Button>
+                    }
+            </Form.Group>
+            )   
+            })}
 
 
-                    <Button type="button" className='add-btn form-fields' variant='dark' onClick={handleIngredientAdd}>
-                         <span>Add Ingredient to Recipe</span>
-                    </Button>
+            <Button type="button" className='formfields' variant='dark' onClick={handleIngredientAdd} style={{marginLeft: '15%'}}>
+                <span>Add Ingredient to Recipe</span>
+            </Button>
 
-            {/* </div> */}
+           
 
             <Form.Group className='formfields'>
-                <Form.Label>Instructions</Form.Label>
+                <Form.Label style={{textDecoration:'underline', marginTop:'2%'}}>Instructions</Form.Label>
                 <Form.Control type='text' id='instructions' onChange={handleChangeInstructions}></Form.Control>
             </Form.Group>
            
-            {/* <div className='form-field'>
-                <label htmlFor='meal'>Instructions</label>
-                <input name='instructions' type='text' id='instructions' onChange={handleChangeInstructions}/>
-            </div> */}
-
           
-                <Button type='submit' variant='dark'>
-                    <span>Add Recipe</span>
-                </Button>
+            <Button type='submit' variant='dark' style={{marginLeft: '15%'}}>
+                <span>Add Recipe</span>
+            </Button>
          
         </Form>
-        {/* </Card> */}
+
     </div>
   )
 }
