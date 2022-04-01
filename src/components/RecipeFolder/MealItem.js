@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 
 const MealItem = ({meal}) => {
     const[imageUrl, setImageUrl] = useState("")
@@ -20,7 +21,7 @@ const MealItem = ({meal}) => {
 
   return (
     <div style={{backgroundColor:'#fff8dc'}}>
-        <h1>{meal.title}</h1>
+        <Link to={`/addonlinerecipe/${meal.id}`}><h1>{meal.title}</h1></Link>
         <img src={imageUrl} alt="recipe"></img>
 
 
