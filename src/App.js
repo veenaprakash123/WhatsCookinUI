@@ -23,6 +23,8 @@ import ReadyToGo from './components/RecipeFolder/ReadyToGo';
 import Matchlist from './components/RecipeFolder/Matchlist'
 import Logout from './components/Logout';
 import UpdatedKitchen from './components/Ingredients/UpdatedKitchen';
+import OnlineRecipeFields from './components/RecipeFolder/OnlineRecipeFields';
+import FinalOnlineRecFields from './components/RecipeFolder/FinalOnlineRecFields';
 
 import Scratchwork from './components/RecipeFolder/Scratchwork';
 
@@ -40,6 +42,9 @@ const App = () => {
 
   const[onlineRecipe, setOnlineRecipe] = useState({})
   const[recipeMatches, setRecipeMatches] = useState([])
+
+  const [ingredientString, setIngredientString] = useState([])
+  const [ingredientsNew, setIngredientsNew] = useState([{ingredient: ""}]);
 
 
 
@@ -108,6 +113,7 @@ const App = () => {
                 <Route path='/session/login' element={<Login/>} ></Route>
                 <Route path='/session/register' element={<Register/>} ></Route>
                 <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>} ></Route>
+                <Route path='/updatedkitchen' element={<UpdatedKitchen ingredients={ingredients} setIngredients={setIngredients}/>}></Route>
                 <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>}></Route>
                 <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
                 <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
@@ -115,7 +121,8 @@ const App = () => {
                 <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients} recipesData={recipesData} setRecipesData={setRecipesData} />}></Route>
                 <Route path='/meallist' element={<MealList onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe} recipeData={recipesData}/>}></Route>
                 <Route path='/mealdetails/:id' element={<MealDetails onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
-                <Route path='/addonlinerecipe/:id' element={<AddOnlineRecipe addRecipe={addRecipe} onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
+                <Route path='/addonlinerecipe/:id' element={<AddOnlineRecipe addRecipe={addRecipe} onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe} ingredientString={ingredientString} setIngredientString={setIngredientString} ingredientsNew={ingredientsNew} setIngredientsNew={setIngredientsNew}/>}></Route>
+
           
                 
 

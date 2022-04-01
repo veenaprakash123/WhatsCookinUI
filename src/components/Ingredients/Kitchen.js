@@ -63,12 +63,12 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
     if (ingredient.location == 'pantry') {
     return(
         <div key={ingredient._id}>
-          <tr>
-            <td>{ingredient.name}</td>
-            <td>{ingredient.amount}</td>
-            <td>filler</td>
-          </tr>
-          {/* <Card>
+        {/* //   <tr>
+        //     <td>{ingredient.name}</td>
+        //     <td>{ingredient.amount}</td>
+        //     <td>filler</td>
+        //   </tr> */}
+          <Card>
           <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '14rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
           <ListGroup variant="flush">
             <ListGroup.Item className='list-group-item'>
@@ -82,7 +82,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
               <Card.Link><Button onClick= {() => deleteIngredient(ingredient._id)} variant="light">Delete</Button> </Card.Link>
             </ListGroup.Item>
          </ListGroup>
-        </Card> */}
+        </Card>
         </div>
     )
     }
@@ -117,7 +117,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
         <h3 className='subheading'>Pantry</h3>
 
         <div>
-          <Table striped bordered hover size="sm" className='table'>
+          {/* <table striped bordered hover size="sm" className='table'>
             <thead>
               <tr>
                 <th>Item</th>
@@ -125,10 +125,10 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
                 <th>Perishable?</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody cellPadding={5} cellSpacing={10}> */}
               {displayIngredientsPantry}
-            </tbody>
-          </Table>
+            {/* </tbody>
+          </table> */}
         </div>
 
         <div className='logout'>

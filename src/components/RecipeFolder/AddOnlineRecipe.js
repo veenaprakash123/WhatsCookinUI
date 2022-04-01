@@ -3,18 +3,18 @@ import {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import {useNavigate} from 'react-router'
 import {Button, Card} from 'react-bootstrap'
+import OnlineRecipeFields from './OnlineRecipeFields'
 
-const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe}) => {
+const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientString, setIngredientString, ingredientsNew, setIngredientsNew}) => {
 
 
     let {id} = useParams()
     let navigate = useNavigate()
 
-    const [ingredients, setIngredients] = useState([{ingredient: ""}]);
+    // const [ingredientsNew, setIngredientsNew] = useState([{ingredient: ""}]);
     const [meal, setMeal] = useState('')
     const [instructions, setInstructions] = useState('')
     const [recipe, setRecipe] = useState({})
-    const [ingredientString, setIngredientString] = useState([])
    
 
     useEffect(()=> {
@@ -30,18 +30,13 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe}) => {
             setIngredientString(data.extendedIngredients) // This is not adding each ingredient from the online recipe as an 'ingredient' object. it is just adding it as a string.
             setInstructions(data.instructions)
         })
-        .then((ingredientString)=>{
-            ingredientString.map((ing) => {
-                setIngredients(...ingredients, {ingredient: `${ing.name}`} )
-            })
-        })
         .catch(()=>{
             console.log("error")
         })
     }, [id])
 
     const handleIngredientAdd = () => {
-        setIngredients([...ingredients, {ingredient: ""}])
+        setIngredientsNew([...ingredientsNew, {ingredient: ""}])
     }
 
     let handleChangeInstructions = (e) =>{
@@ -51,15 +46,15 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe}) => {
 
     let handleChangeIngredient = (e, index) => {
         const {name, value} = e.target
-        const list = [...ingredients]
+        const list = [...ingredientsNew]
         list[index][name] = value
-        setIngredients(list); 
+        setIngredientsNew(list); 
     }
 
     let handleRemove = (index) => {
-        const list = [...ingredients];
+        const list = [...ingredientsNew];
         list.splice(index, 1);
-        setIngredients(list)
+        setIngredientsNew(list)
     }
 
   
@@ -70,35 +65,35 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe}) => {
     // console.log(newArray)
     // setIngredients(newArray)
 
-    let displayIngredients = ingredients? 
-        ingredients.map((ing, index) => {
-            return(
-                <div key={index}  className="ingredients">
-                    <div className='first-division'>
-                        <input name='ingredient' type='text' defaultValue={ing.name} onChange={(e)=> handleChangeIngredient(e, index)}/> 
-                    </div>
-                    <div className='second-division'>
-                        {ingredients.length > 1 && 
-                            <button type='button' className='remove-btn' value={ing.name} onClick={handleRemove}>
-                                <span>Remove</span>
-                            </button>
-                        }
-                    </div>
-                </div>
-            )
-        }): null
+    // let displayIngredients = ingredientsNew? 
+    //     ingredientsNew.map((ing, index) => {
+    //         return(
+    //             <div key={index}  className="ingredients">
+    //                 <div className='first-division'>
+    //                     <input name='ingredient' type='text' defaultValue={ing.name} onChange={(e)=> handleChangeIngredient(e, index)}/> 
+    //                 </div>
+    //                 <div className='second-division'>
+    //                     {ingredientsNew.length > 1 && 
+    //                         <button type='button' className='remove-btn' value={ing.name} onClick={handleRemove}>
+    //                             <span>Remove</span>
+    //                         </button>
+    //                     }
+    //                 </div>
+    //             </div>
+    //         )
+    //     }): null
 
 
         let handleSubmit = async(e) => {
             e.preventDefault()
-            console.log(ingredients)
+            console.log(ingredientsNew)
     
     
             let response = await fetch('http://localhost:4000/recipe', {
                 method: "POST",
                 body: JSON.stringify({
                     meal: meal,
-                    ingredients: ingredients,
+                    ingredients: ingredientsNew,
                     instructions: instructions
                 }), 
                 headers: {
@@ -137,7 +132,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe}) => {
 
                 <label htmlFor='ingredient'>Ingredients</label>
                 
-                {displayIngredients}
+                {ingredientString, ingredientsNew, setIngredientsNew && <OnlineRecipeFields ingredients={ingredientString} setIngredientsNew={setIngredientsNew} ingredientsNew={ingredientsNew}/>}  
 
                 {/* {onlineRecipe && <IngredientFields onlineRecipe={onlineRecipe}/>} */}
 

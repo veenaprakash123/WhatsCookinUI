@@ -68,21 +68,31 @@ function NewRecipe({addRecipe}) {
 
         <h1 className='main-header'> New Recipe </h1>
 
-        <Card>
+        {/* <Card> */}
 
-        <form className='App' autoComplete='off' onSubmit={handleSubmit}>
+        <Form className='App formfields' autoComplete='off' onSubmit={handleSubmit} style={{marginTop: 70}}>
 
-            <div className='form-field'>
-                <label htmlFor='meal'>Meal</label>
-                <input name='meal' type='text' id='meal' onChange={handleChangeMeal}/>
-            </div>
+            <Form.Group className='mb-3'>
+                <Form.Label> Meal</Form.Label>
+                <Form.Control type="text" name='meal' id="meal" onChange={handleChangeMeal}></Form.Control>
+                {/* <div className='first-division'>
+                    <input name='meal' type='text' id='meal' onChange={handleChangeMeal}/>
+                </div>
+        */}
+            </Form.Group>
 
-            <div className='form-field'>
+
+            {/* <div className='form-field'>
 
                 <label htmlFor='ingredient'>Ingredients</label>
                 
                 {ingredientsList.map((ing, index) => {
                     return (
+
+                        // <Form.Group>
+                        //     <Form.Label> </Form.Label>
+                        //     <Form.Control></Form.Control>
+                        // </Form.Group>
     
                         <div key={index}  className="ingredients">
                             <div className='first-division'>
@@ -97,25 +107,50 @@ function NewRecipe({addRecipe}) {
                             </div>
                         </div>
                     )   
-                    })}
-                     <button type="button" className='add-btn' onClick={handleIngredientAdd}>
-                         <span>Add Ingredient to Recipe</span>
-                    </button>
+                    })} */}
 
-            </div>
+                     <Form.Label> Ingredients: </Form.Label>
+
+                    {ingredientsList.map((ing, index) => {
+                    return (
+
+                        <Form.Group key={index} className='formfields'>
+                             <Form.Control type="text" id="ingredient" name='ingredient' onChange={(e) => handleChangeIngredient(e, index)} ></Form.Control>
+                             <div className='second-division'>
+                            {ingredientsList.length > 1 && 
+                                <Button type='button' className='remove-btn' variant='light' value= {ing.ingredient} onClick={handleRemove}>
+                                    <span>Remove</span>
+                                </Button>
+                            }
+                            </div>
+                        </Form.Group>
+                          )   
+                    })}
+
+
+                    <Button type="button" className='add-btn form-fields' variant='dark' onClick={handleIngredientAdd}>
+                         <span>Add Ingredient to Recipe</span>
+                    </Button>
+
+            {/* </div> */}
+
+            <Form.Group className='formfields'>
+                <Form.Label>Instructions</Form.Label>
+                <Form.Control type='text' id='instructions' onChange={handleChangeInstructions}></Form.Control>
+            </Form.Group>
            
-            <div className='form-field'>
+            {/* <div className='form-field'>
                 <label htmlFor='meal'>Instructions</label>
                 <input name='instructions' type='text' id='instructions' onChange={handleChangeInstructions}/>
-            </div>
+            </div> */}
 
-            <div>
-                <button>
+          
+                <Button type='submit' variant='dark'>
                     <span>Add Recipe</span>
-                </button>
-            </div>
-        </form>
-        </Card>
+                </Button>
+         
+        </Form>
+        {/* </Card> */}
     </div>
   )
 }

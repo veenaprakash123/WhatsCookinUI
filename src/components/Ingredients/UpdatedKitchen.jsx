@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import Datatable from './datatable'
 
 require("es6-promise").polyfill()
 require("isomorphic-fetch")
@@ -19,7 +20,17 @@ const UpdatedKitchen = () => {
 
 
   return (
-    <div>UpdatedKitchen</div>
+    <div>
+      <div>UpdatedKitchen</div>
+
+      <div>
+        <Datatable data={data}>
+
+        </Datatable>
+      </div>
+
+
+    </div>
   )
 }
 
