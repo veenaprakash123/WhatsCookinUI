@@ -5,7 +5,7 @@ import {  useParams, Link } from 'react-router-dom'
 import {useNavigate} from 'react-router'
 import '../CSS/General.css'
 
-const EditIngredient = () => {
+const EditIngredient = ({url}) => {
 
     const [ingredient, setIngredient] = useState('')
 
@@ -14,7 +14,7 @@ const EditIngredient = () => {
 
     useEffect(()=> {
         const editDetails = async() => {
-          let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
+          let  ingredientResponse = await fetch(url+ 'kitchen/details/' + id) 
           let json = await ingredientResponse.json()
           console.log(json)
           setIngredient(json)

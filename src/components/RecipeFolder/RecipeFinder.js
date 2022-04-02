@@ -22,7 +22,7 @@ const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
 
     function getOnlineRecipes(){
         fetch(
-            `https://api.spoonacular.com/recipes/findByIngredients?apiKey=5d0b0736e8d24604ba71a7ac99a5571b&ingredients=${ingredientNames}`
+            `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${ingredientNames}`
 
         )
         .then((response) => response.json())

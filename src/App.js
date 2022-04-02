@@ -66,11 +66,14 @@ const App = () => {
   }
 
   useEffect(() => {
-    const url = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com/' : 'localhost:4000/'
-    setUrl(url)
-    getIngredients();
-    getRecipes();
+    const urlx = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com/' : 'localhost:4000/'
+    setUrl(urlx)
   }, []);
+
+useEffect(()=>{
+  getIngredients();
+  getRecipes();
+}, []);
 
   let getIngredient = (ingredient) => {
     setIngredient(ingredient)
@@ -114,27 +117,28 @@ const App = () => {
                 {/* <Route path='/welcome' element={<Welcome/>} ></Route> */}
                 <Route path='/landing' element={<Landing/>}></Route>
                 <Route path='/welcome' element={<Welcome/>}></Route>
-                <Route path='/session/login' element={<Login/>} ></Route>
-                <Route path='/session/register' element={<Register/>} ></Route>
+                <Route path='/session/login' element={<Login url={url}/>} ></Route>
+                <Route path='/session/register' element={<Register url={url}/>} ></Route>
+                <Route element={<Logout url={url}/>}></Route>
                 <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>} ></Route>
                 <Route path='/updatedkitchen' element={<UpdatedKitchen ingredients={ingredients} setIngredients={setIngredients}/>}></Route>
-                <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>}></Route>
-                <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
-                <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient}/>}></Route>
+                <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients} url={url}/>}></Route>
+                <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient} url={url}/>}></Route>
+                <Route path='showingredient/:id' element={<ShowIngredient ingredient={ingredient} setIngredient={setIngredient} url={url}/>}></Route>
 
-                <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients} recipesData={recipesData} setRecipesData={setRecipesData} />}></Route>
+                <Route path='/findrecipe' element={<RecipeFinder ingredients={ingredients} recipesData={recipesData} setRecipesData={setRecipesData}/>}></Route>
                 <Route path='/meallist' element={<MealList onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe} recipeData={recipesData}/>}></Route>
                 <Route path='/mealdetails/:id' element={<MealDetails onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe}/>}></Route>
-                <Route path='/addonlinerecipe/:id' element={<AddOnlineRecipe addRecipe={addRecipe} onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe} ingredientString={ingredientString} setIngredientString={setIngredientString} ingredientsNew={ingredientsNew} setIngredientsNew={setIngredientsNew}/>}></Route>
+                <Route path='/addonlinerecipe/:id' element={<AddOnlineRecipe addRecipe={addRecipe} onlineRecipe={onlineRecipe} setOnlineRecipe={setOnlineRecipe} ingredientString={ingredientString} setIngredientString={setIngredientString} ingredientsNew={ingredientsNew} setIngredientsNew={setIngredientsNew} url={url}/>}></Route>
 
           
                 
 
-                <Route path='/recipebook' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes}/>} ></Route> 
-                <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe}/>}></Route>
-                <Route path='/editrecipe/:id' element={<EditRecipe ingredients={ingredients} setIngredients={setIngredients}/>}></Route>
-                <Route path='/showrecipe/:id' element={<ShowRecipe recipe={recipe} setRecipe={setRecipe}/>}></Route>
-                <Route path='/readytogo' element={<ReadyToGo ingredients={ingredients} recipes={recipes} getIngredients={getIngredients} getRecipes={getRecipes} recipeMatches={recipeMatches} setRecipeMatches={setRecipeMatches}/>}></Route>
+                <Route path='/recipebook' element={<RecipeBook recipe={recipe} recipes={recipes} setRecipe={setRecipe} setRecipes={setRecipes} url={url}/>} ></Route> 
+                <Route path='/newrecipe' element={<NewRecipe addRecipe={addRecipe} url={url}/>}></Route>
+                <Route path='/editrecipe/:id' element={<EditRecipe ingredients={ingredients} setIngredients={setIngredients} url={url}/>}></Route>
+                <Route path='/showrecipe/:id' element={<ShowRecipe recipe={recipe} setRecipe={setRecipe} url={url}/>}></Route>
+                <Route path='/readytogo' element={<ReadyToGo ingredients={ingredients} recipes={recipes} getIngredients={getIngredients} getRecipes={getRecipes} recipeMatches={recipeMatches} setRecipeMatches={setRecipeMatches} url={url}/>}></Route>
                 <Route path='/matchlist' element={<Matchlist recipeMatches={recipeMatches} setRecipeMatches={setRecipeMatches}/>}></Route>
                 <Route path='/scratchwork' element={<Scratchwork/>}></Route>
 

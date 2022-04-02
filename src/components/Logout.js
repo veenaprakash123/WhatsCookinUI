@@ -2,13 +2,13 @@ import React from 'react'
 import {Button} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-const Logout = () => {
+const Logout = ({url}) => {
 
     let navigate= useNavigate()
 
     const logOut = () => {
 
-        fetch('http://localhost:4000/session/logout', {
+        fetch(url+'session/logout', {
           method: "GET",
           body: null,
           headers: {

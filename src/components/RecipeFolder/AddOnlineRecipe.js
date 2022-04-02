@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router'
 import {Button, Card} from 'react-bootstrap'
 import OnlineRecipeFields from './OnlineRecipeFields'
 
-const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientString, setIngredientString, ingredientsNew, setIngredientsNew}) => {
+const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientString, setIngredientString, ingredientsNew, setIngredientsNew, url}) => {
 
 
     let {id} = useParams()
@@ -19,7 +19,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
 
     useEffect(()=> {
         fetch(
-            `https://api.spoonacular.com/recipes/${id}/information?apiKey=5d0b0736e8d24604ba71a7ac99a5571b&includeNutrition=false`
+            `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`
         )
         .then((response)=> response.json())
         .then((data)=> {
@@ -95,7 +95,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
     
             console.log(onlineRecipe)
     
-            let response = await fetch('http://localhost:4000/recipe', {
+            let response = await fetch(url+ 'recipe', {
                 method: "POST",
                 body: JSON.stringify({
                     meal: meal,
@@ -138,7 +138,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
 
                 <label htmlFor='ingredient'>Ingredients</label>
                 
-                {ingredientString, ingredientsNew, setIngredientsNew && <OnlineRecipeFields ingredientString={ingredientString} setIngredientsNew={setIngredientsNew} ingredientsNew={ingredientsNew}/>}  
+                {url, ingredientString, ingredientsNew, setIngredientsNew && <OnlineRecipeFields ingredientString={ingredientString} setIngredientsNew={setIngredientsNew} ingredientsNew={ingredientsNew} url={url}/>}  
 
                 {/* {onlineRecipe && <IngredientFields onlineRecipe={onlineRecipe}/>} */}
 

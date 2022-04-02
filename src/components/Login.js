@@ -5,7 +5,7 @@ import {Form, Button} from 'react-bootstrap'
 import './CSS/General.css'
 
 
-const Login = () => {
+const Login = ({url}) => {
 
   const [user, setUser] = useState({
     name: '',
@@ -28,7 +28,7 @@ const Login = () => {
   let handleSubmit = (e) =>{
     e.preventDefault()
 
-    fetch('http://localhost:4000/session/login', {
+    fetch(url+ '/session/login', {
       method: "POST", 
       body: JSON.stringify(loggedInUser),
       headers: {

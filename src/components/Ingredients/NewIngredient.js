@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import '../CSS/General.css'
 
-const NewIngredient = ({addIngredient}) => {
+const NewIngredient = ({addIngredient, url}) => {
 
   const [ingredient, setIngredient]= useState({})
 
@@ -19,7 +19,7 @@ const NewIngredient = ({addIngredient}) => {
         e.preventDefault()
         console.log({ingredient})
 
-        let response = await fetch('http://localhost:4000/kitchen', {
+        let response = await fetch(url + 'kitchen', {
             method: "POST",
             body: JSON.stringify(
                 // name: ingredient.name,

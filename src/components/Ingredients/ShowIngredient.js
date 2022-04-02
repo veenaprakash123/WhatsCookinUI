@@ -4,18 +4,20 @@ import { useParams, Link} from 'react-router-dom';
 import {Button, Card, ListGroup} from 'react-bootstrap'
 import '../CSS/General.css'
 
-const ShowIngredient = ({ingredient, setIngredient}) => {
+const ShowIngredient = ({ingredient, setIngredient, url}) => {
 
 
 
     let {id} = useParams()
   
     useEffect(()=> {
+
       const showDetails = async() => {
-        let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
+        let  ingredientResponse = await fetch(url + '/kitchen/details/' + id) 
         let json = await ingredientResponse.json()
         setIngredient(json)
       }
+
       showDetails()
       console.log(ingredient)
     }, [id]) 

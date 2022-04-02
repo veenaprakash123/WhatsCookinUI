@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router'
 import '../CSS/General.css'
 
 
-function NewRecipe({addRecipe}) {
+function NewRecipe({addRecipe, url}) {
 
     const [ingredientsList, setIngredientsList] = useState([{ingredient: ""}]);
     const [meal, setMeal] = useState('')
@@ -46,7 +46,7 @@ function NewRecipe({addRecipe}) {
         console.log(ingredientsList)
 
 
-        let response = await fetch('http://localhost:4000/recipe', {
+        let response = await fetch(url+'recipe', {
             method: "POST",
             body: JSON.stringify({
                 meal: meal,

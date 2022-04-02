@@ -7,7 +7,7 @@ const MealItem = ({meal}) => {
 
     useEffect(()=>{
         fetch(
-            `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=5d0b0736e8d24604ba71a7ac99a5571b&includeNutrition=false`
+            `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`
         )
         .then((response)=> response.json())
         .then((data)=>{

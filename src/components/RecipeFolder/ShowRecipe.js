@@ -4,14 +4,14 @@ import { Navigate, useNavigate, useParams, Link} from 'react-router-dom'
 import {Button, Card, ListGroup} from 'react-bootstrap'
 
 
-const ShowRecipe = ({recipe, setRecipe}) => {
+const ShowRecipe = ({recipe, setRecipe, url}) => {
 
     let {id} = useParams()
     let navigate= useNavigate()
 
     useEffect(()=> {
     let getRecipe = async() => {
-        let recipeResponse = await fetch('http://localhost:4000/recipe/' + id)
+        let recipeResponse = await fetch(url+'recipe/' + id)
         let json = await recipeResponse.json()
         setRecipe(json)
         }

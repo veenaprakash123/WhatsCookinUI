@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import '../CSS/General.css'
 
 
-const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
+const RecipeBook = ({recipe, recipes, setRecipe, setRecipes, url}) => {
 
   let navigate = useNavigate()
 
   let deleteRecipe = async(i) => {
     console.log(i)
-    let data = await fetch('http://localhost:4000/recipe/details/' + i, {
+    let data = await fetch(url+'recipe/details/' + i, {
       method: "DELETE",
       body: null,
       headers: {
