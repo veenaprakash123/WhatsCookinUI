@@ -14,7 +14,7 @@ const EditIngredient = ({url}) => {
 
     useEffect(()=> {
         const editDetails = async() => {
-          let  ingredientResponse = await fetch(url+ 'kitchen/details/' + id) 
+          let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
           let json = await ingredientResponse.json()
           console.log(json)
           setIngredient(json)
@@ -52,7 +52,7 @@ const EditIngredient = ({url}) => {
 
   return (
     <div>
-        <h1 className='main-header'>New Ingredient</h1>
+        <h1 className='main-header'>Edit Ingredient</h1>
         <Button variant="dark" style={{marginTop: 30}} >
             <Link to='/kitchen' style={{ color:'white', textDecoration: 'none' }}>
             Return to Kitchen

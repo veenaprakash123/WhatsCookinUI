@@ -7,7 +7,7 @@ const Matchlist = ({recipeMatches, setRecipeMatches}) => {
 
         return(
             <Card key={recipe._id} className='custom-class'>
-                <Card.Img variant="top" src={`${recipe.image}`} style={{ width: '10rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
+                {/* <Card.Img variant="top" src={`${recipe.image}`} style={{ width: '10rem' , height:'10rem', marginLeft:'10'}} ></Card.Img> */}
                 <Card.Title key={recipe._id}>{recipe.meal}</Card.Title>
                 <ListGroup variant="flush">
                     <ListGroup.Item>

@@ -36,13 +36,16 @@ function getMyRecipes() {
 
   return (
       
-    <div>
-      <div>
+    <div style={{backgroundColor: '#fff8dc', height:'700px'}}>
+      <div className='main-header'>
         <h1>Ready to Go</h1>
       </div>
 
+      <div style={{marginTop:'7%', marginLeft:'5%', marginRight:'3%'}}>
+        <p>Click the link below to find meals from your Recipe Book that you can make with the ingredients in your kitchen! The recipes below won't require you to purchase any more ingredients. </p>
+      </div>
 
-      <Button onClick={getMyRecipes}>Recipes at my finger tips!</Button>
+      <Button onClick={getMyRecipes} style={{marginLeft:'5%'}} variant="dark">Recipes at my finger tips!</Button>
 
       {recipeMatches && <Matchlist recipeMatches={recipeMatches}/>}
 

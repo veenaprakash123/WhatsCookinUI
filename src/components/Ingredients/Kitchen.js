@@ -111,7 +111,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients, url}) 
 
         <h3 className='subheading'>Pantry</h3>
 
-        <div>
+        <div className='container'>
           {/* <table striped bordered hover size="sm" className='table'>
             <thead>
               <tr>

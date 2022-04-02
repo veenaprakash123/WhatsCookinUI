@@ -46,7 +46,7 @@ function NewRecipe({addRecipe, url}) {
         console.log(ingredientsList)
 
 
-        let response = await fetch(url+'recipe', {
+        let response = await fetch('http://localhost:4000/recipe', {
             method: "POST",
             body: JSON.stringify({
                 meal: meal,

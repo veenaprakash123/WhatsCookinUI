@@ -19,7 +19,7 @@ const NewIngredient = ({addIngredient, url}) => {
         e.preventDefault()
         console.log({ingredient})
 
-        let response = await fetch(url + 'kitchen', {
+        let response = await fetch('http://localhost:4000/kitchen', {
             method: "POST",
             body: JSON.stringify(
                 // name: ingredient.name,
@@ -58,7 +58,7 @@ const NewIngredient = ({addIngredient, url}) => {
 
         <Form.Group className="mb-3 formfields">
            <Form.Label>Where do you store it?</Form.Label>
-           <Form.Control type="location" id="location" name="location" placeholder="Ex: fridge" onChange={handleChange} />
+           <Form.Control type="location" id="location" name="location" placeholder="fridge or pantry?" onChange={handleChange} />
         </Form.Group>
 
         <Form.Group className="mb-3 formfields">
