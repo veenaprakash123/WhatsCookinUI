@@ -88,13 +88,6 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes}) => {
         {displayRecipes}
 
         </div>
-
-        <Button>
-          <Link to='/newrecipe' style={{ color:'white', textDecoration: 'none' }}>
-            Add Recipe
-          </Link>
-        </Button>
-
     </div>
   )
 }

@@ -39,7 +39,7 @@ const Register = () => {
           console.log(data)
           if (data.status === 200){
             // setToast(createUser.username)
-            navigate('/entries')
+            navigate('/landing')
           } else if (data.status === 400){
               setMessage(data.msg)
             } 

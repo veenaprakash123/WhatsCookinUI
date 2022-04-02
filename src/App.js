@@ -46,11 +46,12 @@ const App = () => {
   const [ingredientString, setIngredientString] = useState([])
   const [ingredientsNew, setIngredientsNew] = useState([{ingredient: ""}]);
 
+  const [url, setUrl] = useState()
 
 
   let getIngredients = async() => {
     console.log('yes')
-    let data = await fetch('http://localhost:4000/kitchen')
+    let data = await fetch(url + 'kitchen')
     let json = await data.json()
     console.log(json)
     setIngredients(json)
@@ -58,13 +59,15 @@ const App = () => {
 
   let getRecipes = async() => {
     console.log('yes')
-    let recipeData = await fetch('http://localhost:4000/recipe')
+    let recipeData = await fetch(url + 'recipe')
     let recipeJson = await recipeData.json()
     console.log(recipeJson)
     setRecipes(recipeJson)
   }
 
   useEffect(() => {
+    const url = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com/' : 'localhost:4000/'
+    setUrl(url)
     getIngredients();
     getRecipes();
   }, []);
@@ -91,6 +94,7 @@ const App = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+          <Nav.Link href="/landing">Home</Nav.Link>
             <Nav.Link href="/kitchen">Kitchen</Nav.Link>
             <NavDropdown title="Recipes" id="basic-nav-dropdown">
               <NavDropdown.Item href="/recipebook">My Recipe Book</NavDropdown.Item>

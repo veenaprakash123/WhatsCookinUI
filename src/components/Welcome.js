@@ -9,7 +9,7 @@ const Welcome = () => {
   let navigate = useNavigate()
 
   return (
-    <div className='body-red' style={{height: 700}}>
+    <div style={{height: 700}}>
 
       <div className="welcome" >
       <h1 style={{fontSize:'70px'}}>Welcome!</h1>
