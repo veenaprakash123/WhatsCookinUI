@@ -51,7 +51,8 @@ const App = () => {
 
   let getIngredients = async() => {
     console.log('yes')
-    let data = await fetch('http://localhost:4000/kitchen')
+    let data = await fetch(`${url}/kitchen`)
+    // let data = await fetch('http://localhost:4000/kitchen')
     let json = await data.json()
     console.log(json)
     setIngredients(json)
@@ -59,14 +60,15 @@ const App = () => {
 
   let getRecipes = async() => {
     console.log('yes')
-    let recipeData = await fetch('http://localhost4000/recipe')
+    let recipeData = await fetch(`${url}/recipe`)
+    // let recipeData = await fetch('http://localhost4000/recipe')
     let recipeJson = await recipeData.json()
     console.log(recipeJson)
     setRecipes(recipeJson)
   }
 
   useEffect(() => {
-    const urlx = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com/' : 'http://localhost:4000/'
+    const urlx = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com' : 'http://localhost:4000'
     setUrl(urlx)
   }, []);
 

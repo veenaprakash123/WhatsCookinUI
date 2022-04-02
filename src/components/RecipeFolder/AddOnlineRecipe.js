@@ -70,7 +70,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
     
             console.log(onlineRecipe)
     
-            let response = await fetch(url+ 'recipe', {
+            let response = await fetch(`${url}/recipe`, {
                 method: "POST",
                 body: JSON.stringify({
                     meal: meal,

@@ -18,8 +18,8 @@ const NewIngredient = ({addIngredient, url}) => {
     let handleSubmit = async(e) => {
         e.preventDefault()
         console.log({ingredient})
-
-        let response = await fetch('http://localhost:4000/kitchen', {
+        let response = await fetch(`${url}/kitchen`, {
+        // let response = await fetch('http://localhost:4000/kitchen', {
             method: "POST",
             body: JSON.stringify(
                 // name: ingredient.name,

@@ -14,7 +14,8 @@ const EditIngredient = ({url}) => {
 
     useEffect(()=> {
         const editDetails = async() => {
-          let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
+          let  ingredientResponse = await fetch(`${url}/kitchen/details/` + id) 
+          // let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
           let json = await ingredientResponse.json()
           console.log(json)
           setIngredient(json)
@@ -32,8 +33,8 @@ const EditIngredient = ({url}) => {
 
       let handleSubmit = async(e) => {
         e.preventDefault()
-
-        let response = await fetch('http://localhost:4000/kitchen/edit/' + id, {
+        let response = await fetch(`${url}/kitchen/edit/` + id, {
+        // let response = await fetch('http://localhost:4000/kitchen/edit/' + id, {
         method: "PUT", 
         body: JSON.stringify(ingredient),
         headers: {

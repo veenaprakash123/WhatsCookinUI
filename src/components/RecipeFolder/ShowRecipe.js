@@ -11,7 +11,8 @@ const ShowRecipe = ({recipe, setRecipe, url}) => {
 
     useEffect(()=> {
     let getRecipe = async() => {
-        let recipeResponse = await fetch('http://localhost:4000/recipe/' + id)
+        let recipeResponse = await fetch(`${url}/recipe/` + id)
+        // let recipeResponse = await fetch('http://localhost:4000/recipe/' + id)
         let json = await recipeResponse.json()
         setRecipe(json)
         }

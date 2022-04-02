@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import {Form, Button} from 'react-bootstrap'
 
-const Register = () => {
+const Register = ({url}) => {
 
     const [user, setUser] = useState({
         username: '',  
@@ -22,8 +22,9 @@ const Register = () => {
     let handleSubmit = (e) =>{
 
       e.preventDefault()
- 
-      fetch('http://localhost:4000/session/register', {
+
+      fetch(`${url}/session/register`, {
+      // fetch('http://localhost:4000/session/register', {
           method: "POST", 
           body: JSON.stringify(createUser),
           headers: {

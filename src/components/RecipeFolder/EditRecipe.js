@@ -4,7 +4,7 @@ import {  useParams, Link } from 'react-router-dom'
 import {useNavigate} from 'react-router'
 import {Card, Button, Form} from 'react-bootstrap'
 
-const EditRecipe = () => {
+const EditRecipe = ({url}) => {
 
     const [recipe, setRecipe] = useState({})
 
@@ -29,7 +29,8 @@ const EditRecipe = () => {
 
     useEffect(()=> {
         const editDetails = async() => {
-          let  recipeResponse = await fetch('http://localhost:4000/recipe/' + id) 
+            let  recipeResponse = await fetch(`${url}/recipe/` + id) 
+        //   let  recipeResponse = await fetch('http://localhost:4000/recipe/' + id) 
           let json = await recipeResponse.json()
           console.log(json)
           setRecipe(json)
@@ -72,8 +73,8 @@ const EditRecipe = () => {
 
     let handleSubmit = async(e) => {
         e.preventDefault()
-
-        let response = await fetch('http://localhost:4000/recipe/edit/' + id, {
+        let response = await fetch(`${url}/recipe/edit/` + id, {
+        // let response = await fetch('http://localhost:4000/recipe/edit/' + id, {
         method: "PUT", 
         body: JSON.stringify({
             meal: meal,
@@ -148,7 +149,7 @@ const EditRecipe = () => {
             </div> */}
 
             <Button type='submit' variant='dark' style={{marginLeft: '15%'}}>
-                <span>Add Recipe</span>
+                <span>Edit Recipe</span>
             </Button>
 
             {/* <div>

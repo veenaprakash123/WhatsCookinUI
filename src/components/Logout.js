@@ -8,7 +8,7 @@ const Logout = ({url}) => {
 
     const logOut = () => {
 
-        fetch(url+'session/logout', {
+        fetch(`${url}/session/logout`, {
           method: "GET",
           body: null,
           headers: {

@@ -8,10 +8,6 @@ import '../CSS/General.css'
 
 const RecipeFinder = ({ingredients, recipesData, setRecipesData}) => {
 
-    // const url = 'https://api.spoonacular.com/food/ingredients/butter'
-
-    // const[items, setItems] = useState([])
-    // const[recipeData, setRecipeData] = useState([])
 
 
     function handleChange(e) {

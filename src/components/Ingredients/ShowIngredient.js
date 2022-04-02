@@ -13,7 +13,8 @@ const ShowIngredient = ({ingredient, setIngredient, url}) => {
     useEffect(()=> {
 
       const showDetails = async() => {
-        let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
+        let  ingredientResponse = await fetch(`${url}/kitchen/details/` + id) 
+        // let  ingredientResponse = await fetch('http://localhost:4000/kitchen/details/' + id) 
         let json = await ingredientResponse.json()
         setIngredient(json)
       }
