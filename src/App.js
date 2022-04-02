@@ -66,7 +66,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    const urlx = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com/' : 'localhost:4000/'
+    const urlx = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com/' : 'http://localhost:4000/'
     setUrl(urlx)
   }, []);
 
