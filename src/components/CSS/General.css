@@ -34,9 +34,11 @@ body{
 
 .landing{
     display: grid;
-    grid-template-rows: 200px 200px 200px 200px;
-    grid-template-columns: 200px 1fr 1fr 200px;
+    grid-template-rows: 150px 150px 150px 150px 100px;
+    grid-template-columns: 200px 1fr 1fr 200px 100px;
 }
+
+
 
 .child{
     /* border-left: 3px solid black; */
@@ -49,6 +51,7 @@ body{
     border-bottom: 1px solid white;
     text-align: center;
     padding-top: 20%;
+    font-size: 100px;
 }
 
 .child-2{

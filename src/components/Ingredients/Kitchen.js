@@ -8,7 +8,7 @@ import Logout from '../Logout'
 import Table from 'react-bootstrap/Table'
 
 
-const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
+const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients, url}) => {
 
   let ingredientInFocus = (e) => {
     console.log(e.target)
@@ -19,7 +19,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients}) => {
 
   let deleteIngredient = async(i) => {
     console.log(i)
-    let data = await fetch('http://localhost:4000/kitchen/details/' + i, {
+    let data = await fetch(url+'kitchen/details/' + i, {
       method: "DELETE",
       body: null,
       headers: {

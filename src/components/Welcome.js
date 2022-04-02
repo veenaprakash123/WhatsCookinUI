@@ -9,9 +9,9 @@ const Welcome = () => {
   let navigate = useNavigate()
 
   return (
-    <div style={{height: 700}}>
+    <div className="body" style={{height: 700}}>
 
-      <div className="welcome" >
+      <div className="welcome body" >
       <h1 style={{fontSize:'70px'}}>Welcome!</h1>
       </div>
 

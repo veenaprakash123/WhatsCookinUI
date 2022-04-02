@@ -59,10 +59,10 @@ const MealDetails = ({onlineRecipe, setOnlineRecipe}) => {
   return (
     <div>
       <h1 className='main-header'>Recipe Details</h1>
-        <img src={imageUrl} alt='recipe'> </img>
+        {/* <img src={imageUrl} alt='recipe'> </img> */}
         <div>
           <h2>{recipeTitle}</h2>
-          <img src={imageUrl} alt='recipe'></img>
+          {/* <img src={imageUrl} alt='recipe'></img> */}
         </div>
         <div>
           <h2>Ingredients:</h2>

@@ -120,7 +120,7 @@ useEffect(()=>{
                 <Route path='/session/login' element={<Login url={url}/>} ></Route>
                 <Route path='/session/register' element={<Register url={url}/>} ></Route>
                 <Route element={<Logout url={url}/>}></Route>
-                <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients}/>} ></Route>
+                <Route path='/kitchen' element={<Kitchen ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients} url={url}/>} ></Route>
                 <Route path='/updatedkitchen' element={<UpdatedKitchen ingredients={ingredients} setIngredients={setIngredients}/>}></Route>
                 <Route path='/newingredient' element={<NewIngredient addIngredient={addIngredient} ingredient={ingredient} ingredients={ingredients} setIngredient={setIngredient} setIngredients={setIngredients} url={url}/>}></Route>
                 <Route path='editingredient/:id' element={<EditIngredient ingredient={ingredient} setIngredient={setIngredient} url={url}/>}></Route>
