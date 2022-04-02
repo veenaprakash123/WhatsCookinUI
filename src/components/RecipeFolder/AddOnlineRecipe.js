@@ -102,7 +102,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
 
         <Form.Group className='mb-3 formfields'>
                 <Form.Label style={{textDecoration:'underline'}}> Meal</Form.Label>
-                <Form.Control type="text" name='meal' id="meal" onChange={handleChangeMeal}></Form.Control>
+                <Form.Control type="text" name='meal' id="meal" defaultValue={onlineRecipe.title} onChange={handleChangeMeal}></Form.Control>
             </Form.Group>
 
 
@@ -123,7 +123,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
            
             <Form.Group className='formfields'>
                 <Form.Label style={{textDecoration:'underline', marginTop:'2%'}}>Instructions</Form.Label>
-                <Form.Control type='text' id='instructions' onChange={handleChangeInstructions}></Form.Control>
+                <Form.Control type='text' id='instructions' defaultValue={onlineRecipe.instructions} onChange={handleChangeInstructions}></Form.Control>
             </Form.Group>
            
 

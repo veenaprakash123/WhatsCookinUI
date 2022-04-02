@@ -26,7 +26,7 @@ const FinalOnlineRecFields = ({ingredientsNew, setIngredientsNew}) => {
         return(
             <div>
             <Form.Group key={index}  className="mb-3 formfields">
-                <Form.Control type="text" id="ingredient" name="ingredient" onChange={(e)=> handleChangeIngredient(e, index)}></Form.Control>
+                <Form.Control type="text" id="ingredient" name="ingredient" defaultValue={ing.ingredient} onChange={(e)=> handleChangeIngredient(e, index)}></Form.Control>
                     {ingredientsNew.length > 1 && 
                             <Button type='button' className='remove-btn' value={ing.ingredient} variant="light" onClick={handleRemove}>
                                 <span>Remove</span>
