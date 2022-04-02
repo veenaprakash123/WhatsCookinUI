@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import {useNavigate} from 'react-router'
-import {Button, Card} from 'react-bootstrap'
+import {Button, Card, Form} from 'react-bootstrap'
 import OnlineRecipeFields from './OnlineRecipeFields'
 
 const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientString, setIngredientString, ingredientsNew, setIngredientsNew, url}) => {
@@ -37,6 +37,11 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
             console.log("error")
         })
     }, [id])
+
+
+    let handleChangeMeal = (e) => {
+        setMeal(e.target.value)
+      }
 
     const handleIngredientAdd = () => {
         console.log(ingredientsNew)
@@ -92,39 +97,47 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
   return (
     <div>
          <Card>
-        <form className='App' autoComplete='off' onSubmit={handleSubmit}>
+        <Form autoComplete='off' onSubmit={handleSubmit} style={{marginTop: 60, marginBottom: 40}}>
+
+
+        <Form.Group className='mb-3 formfields'>
+                <Form.Label style={{textDecoration:'underline'}}> Meal</Form.Label>
+                <Form.Control type="text" name='meal' id="meal" onChange={handleChangeMeal}></Form.Control>
+            </Form.Group>
+
+
+        <Form.Label className='formfields' style={{textDecoration:'underline'}}> Ingredients: </Form.Label>
+
 
             <div className='form-field'>
-                <label htmlFor='meal'>Meal</label>
-                <input name='meal' type='text' id='meal' defaultValue ={onlineRecipe.title}  />
-            </div>
-
-
-            <div className='form-field'>
-
-                <label htmlFor='ingredient'>Ingredients</label>
                 
                 {url, ingredientString, ingredientsNew, setIngredientsNew && <OnlineRecipeFields ingredientString={ingredientString} setIngredientsNew={setIngredientsNew} ingredientsNew={ingredientsNew} url={url}/>}  
 
                 {/* {onlineRecipe && <IngredientFields onlineRecipe={onlineRecipe}/>} */}
 
-                <button type="button" className='add-btn' onClick={handleIngredientAdd}>
+                <Button type="button" className='add-btn formfields' variant='dark' onClick={handleIngredientAdd} style={{marginLeft: '15%'}}>
                     <span>Add Ingredient to Recipe</span>
-                </button>
+                </Button>
 
             </div>
            
-            <div className='form-field'>
+            <Form.Group className='formfields'>
+                <Form.Label style={{textDecoration:'underline', marginTop:'2%'}}>Instructions</Form.Label>
+                <Form.Control type='text' id='instructions' onChange={handleChangeInstructions}></Form.Control>
+            </Form.Group>
+           
+
+
+
+            {/* <div className='form-field'>
                 <label htmlFor='meal'>Instructions</label>
                 <input name='instructions' type='text' id='instructions' defaultValue={onlineRecipe.instructions} onChange={handleChangeInstructions}/>
-            </div>
+            </div> */}
 
-            <div>
-           <button>
-                    <span>Add Recipe</span>
-                </button>
-            </div>
-        </form>
+            <Button type='submit' variant='dark' style={{marginLeft: '15%'}}>
+                <span>Add Recipe</span>
+            </Button>
+        </Form>
         </Card>
 
     </div>
