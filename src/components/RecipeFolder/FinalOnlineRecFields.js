@@ -1,4 +1,5 @@
 import React from 'react'
+import {Form, Button} from 'react-bootstrap'
 
 const FinalOnlineRecFields = ({ingredientsNew, setIngredientsNew}) => {
 
@@ -23,7 +24,16 @@ const FinalOnlineRecFields = ({ingredientsNew, setIngredientsNew}) => {
     let displayIngredients = ingredientsNew? 
     ingredientsNew.map((ing, index) => {
         return(
-            <div key={index}  className="ingredients">
+            <div>
+            <Form.Group key={index}  className="mb-3 formfields">
+                <Form.Control type="text" id="ingredient" name="ingredient" onChange={(e)=> handleChangeIngredient(e, index)}></Form.Control>
+                    {ingredientsNew.length > 1 && 
+                            <Button type='button' className='remove-btn' value={ing.ingredient} onClick={handleRemove}>
+                                <span>Remove</span>
+                            </Button>
+                    }
+            </Form.Group>
+            {/* <div key={index}  className="ingredients">
                 <div className='first-division'>
                     <input name='ingredient' type='text' defaultValue={ing.ingredient} onChange={(e)=> handleChangeIngredient(e, index)}/> 
                 </div>
@@ -33,7 +43,8 @@ const FinalOnlineRecFields = ({ingredientsNew, setIngredientsNew}) => {
                             <span>Remove</span>
                         </button>
                     }
-                </div>
+                </div> 
+            </div> */}
             </div>
         )
     }): null

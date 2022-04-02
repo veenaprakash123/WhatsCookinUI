@@ -69,7 +69,7 @@ function NewRecipe({addRecipe, url}) {
 
         <h1 className='main-header'> New Recipe </h1>
 
-        <Form autoComplete='off' onSubmit={handleSubmit} style={{marginTop: 70}}>
+        <Form autoComplete='off' onSubmit={handleSubmit} style={{marginTop: 60, marginBottom: 40}}>
 
             <Form.Group className='mb-3 formfields'>
                 <Form.Label style={{textDecoration:'underline'}}> Meal</Form.Label>

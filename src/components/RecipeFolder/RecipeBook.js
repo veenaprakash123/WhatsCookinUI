@@ -11,7 +11,7 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes, url}) => {
 
   let deleteRecipe = async(i) => {
     console.log(i)
-    let data = await fetch(url+'recipe/details/' + i, {
+    let data = await fetch('http://localhost:4000/recipe/details/' + i, {
       method: "DELETE",
       body: null,
       headers: {
@@ -54,7 +54,7 @@ const RecipeBook = ({recipe, recipes, setRecipe, setRecipes, url}) => {
         </div>
 
         <div> 
-        <Carousel className='carousel'>
+        <Carousel className='carousel' style={{height:'50px'}}>
           <Carousel.Item>
             <img
               className="d-block w-100" 

@@ -62,31 +62,6 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
         setIngredientsNew(list)
     }
 
-  
-    // let newArray = ingredientString.map((ing) => {
-    //     return {ingredient:ing.name}
-    // })
-    
-    // console.log(newArray)
-    // setIngredients(newArray)
-
-    // let displayIngredients = ingredientsNew? 
-    //     ingredientsNew.map((ing, index) => {
-    //         return(
-    //             <div key={index}  className="ingredients">
-    //                 <div className='first-division'>
-    //                     <input name='ingredient' type='text' defaultValue={ing.name} onChange={(e)=> handleChangeIngredient(e, index)}/> 
-    //                 </div>
-    //                 <div className='second-division'>
-    //                     {ingredientsNew.length > 1 && 
-    //                         <button type='button' className='remove-btn' value={ing.name} onClick={handleRemove}>
-    //                             <span>Remove</span>
-    //                         </button>
-    //                     }
-    //                 </div>
-    //             </div>
-    //         )
-    //     }): null
 
 
         let handleSubmit = async(e) => {
@@ -112,16 +87,7 @@ const AddOnlineRecipe = ({addRecipe, onlineRecipe, setOnlineRecipe, ingredientSt
             navigate('/recipebook')
         }
 
-        // function removeTags(str) {
-        //     if ((str===null) || (str===''))
-        //         return false;
-        //     else
-        //         str = str.toString();
-        //     return str.replace( /(<([^>]+)>)/ig, ' ')
-      
-        //   }
-        
-        // const displayInstructions = removeTags(onlineRecipe.instructions)
+
 
   return (
     <div>

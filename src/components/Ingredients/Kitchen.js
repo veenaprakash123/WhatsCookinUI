@@ -63,11 +63,6 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients, url}) 
     if (ingredient.location == 'pantry') {
     return(
         <div key={ingredient._id}>
-        {/* //   <tr>
-        //     <td>{ingredient.name}</td>
-        //     <td>{ingredient.amount}</td>
-        //     <td>filler</td>
-        //   </tr> */}
           <Card>
           <Card.Img variant="top" src={`${ingredient.image}`} style={{ width: '14rem' , height:'10rem', marginLeft:'10'}} ></Card.Img>
           <ListGroup variant="flush">

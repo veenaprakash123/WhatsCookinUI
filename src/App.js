@@ -51,7 +51,7 @@ const App = () => {
 
   let getIngredients = async() => {
     console.log('yes')
-    let data = await fetch(url + 'kitchen')
+    let data = await fetch('http://localhost:4000/kitchen')
     let json = await data.json()
     console.log(json)
     setIngredients(json)
@@ -59,7 +59,7 @@ const App = () => {
 
   let getRecipes = async() => {
     console.log('yes')
-    let recipeData = await fetch(url + 'recipe')
+    let recipeData = await fetch('http://localhost4000/recipe')
     let recipeJson = await recipeData.json()
     console.log(recipeJson)
     setRecipes(recipeJson)

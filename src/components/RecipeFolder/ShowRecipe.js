@@ -11,7 +11,7 @@ const ShowRecipe = ({recipe, setRecipe, url}) => {
 
     useEffect(()=> {
     let getRecipe = async() => {
-        let recipeResponse = await fetch(url+'recipe/' + id)
+        let recipeResponse = await fetch('http://localhost:4000/recipe/' + id)
         let json = await recipeResponse.json()
         setRecipe(json)
         }
@@ -25,16 +25,7 @@ const ShowRecipe = ({recipe, setRecipe, url}) => {
     }) : null
         
 
-    // function removeTags(str) {
-    //     if ((str===null) || (str===''))
-    //         return false;
-    //     else
-    //         str = str.toString();
-    //     return str.replace( /(<([^>]+)>)/ig, ' ')
-  
-    //   }
-    
-    // const displayInstructions = removeTags(recipe.instructions)
+
 
   return (
 
@@ -51,16 +42,16 @@ const ShowRecipe = ({recipe, setRecipe, url}) => {
         <div className='recipe-card'>
 
             <div key={recipe._id}>
-                <h1 style={{marginTop:'20%', textDecoration: 'underline'}}>{recipe.meal}</h1>
+                <h1 style={{marginTop:'5%', textDecoration: 'underline'}}>{recipe.meal}</h1>
 
-                <div style={{marginTop:'15%'}}>
+                <div style={{marginTop:'10%'}}>
                   <h3>Ingredients:</h3>
                   <ul>
                     {displayRecipe}
                   </ul>
                 </div>
 
-                <div style={{marginTop:'10%'}}>
+                <div style={{marginTop:'5%'}}>
                   <h3>Instructions:</h3>
                   <p>{recipe.instructions}</p>
                 </div>

@@ -8,22 +8,6 @@ import MealItem from './MealItem'
 
 const MealList = ({recipeData, onlineRecipe, setOnlineRecipe}) => {
 
-    // const[imageUrl, setImageUrl]= useState("")
-
-
-
-    // let displayMeals = recipeData && recipeData.map((recipe) => {
-    //     return(
-    //         <div key={recipe.id}>
-    //         <Card>
-    //         <div>
-    //             <Link to={`/mealdetails/${recipe.id}`}><h3>{recipe.title}</h3></Link>
-    //             <img src={imageUrl} alt='recipe'></img>
-    //         </div>
-    //         </Card>
-    //         </div>
-    //     )
-    // }) 
 
 
 
