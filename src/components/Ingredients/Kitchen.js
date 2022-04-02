@@ -19,7 +19,7 @@ const Kitchen = ({ingredient, ingredients, setIngredient, setIngredients, url}) 
 
   let deleteIngredient = async(i) => {
     console.log(i)
-    let data = await fetch(url+'kitchen/details/' + i, {
+    let data = await fetch(`${url}/kitchen/details/` + i, {
       method: "DELETE",
       body: null,
       headers: {

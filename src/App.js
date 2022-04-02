@@ -46,7 +46,8 @@ const App = () => {
   const [ingredientString, setIngredientString] = useState([])
   const [ingredientsNew, setIngredientsNew] = useState([{ingredient: ""}]);
 
-  const [url, setUrl] = useState()
+  // const [url, setUrl] = useState()
+  const url = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com' : 'http://localhost:4000'
 
 
   let getIngredients = async() => {
@@ -67,10 +68,10 @@ const App = () => {
     setRecipes(recipeJson)
   }
 
-  useEffect(() => {
-    const urlx = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com' : 'http://localhost:4000'
-    setUrl(urlx)
-  }, []);
+  // useEffect(() => {
+  //   const url = process.env.REACT_APP_ENV === 'production' ? 'https://apple-crisp-78388.herokuapp.com' : 'http://localhost:4000'
+  //   // setUrl(url)
+  // }, []);
 
 useEffect(()=>{
   getIngredients();
